@@ -1,0 +1,707 @@
+@import "tailwindcss";
+
+@theme {
+  --font-interface: "Exo", "Arial Narrow", sans-serif;
+  --font-display: "Cinzel Decorative", Georgia, serif;
+
+  --color-arena-base: #07080b;
+  --color-arena-panel: #030406;
+  --color-arena-line: #1e2025;
+  --color-arena-outline: #2d3036;
+  --color-arena-copy: #a7a5a7;
+  --color-arena-muted: #73747d;
+  --color-arena-dim: #53545d;
+  --color-arena-strong: #d5d3d3;
+  --color-crimson: #e51e2d;
+
+  --shadow-panel: inset 0 0 0 1px rgb(255 255 255 / 0.018), 0 1px 12px rgb(0 0 0 / 0.38);
+}
+
+:root {
+  font-family: var(--font-interface);
+  color: var(--color-arena-copy);
+  background: var(--color-arena-base);
+  font-synthesis: none;
+  text-rendering: geometricPrecision;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  background: #050608;
+  overflow-x: hidden;
+}
+
+body {
+  width: 100%;
+  min-width: 360px;
+  margin: 0;
+  overflow-x: hidden;
+}
+
+body::-webkit-scrollbar {
+  display: none;
+}
+
+button {
+  cursor: pointer;
+}
+
+#root {
+  width: 100%;
+  min-height: 100vh;
+}
+
+.arena-shell {
+  background-image:
+    radial-gradient(circle at 74% 12%, rgb(205 24 37 / 0.035), transparent 27rem),
+    radial-gradient(circle at 45% 68%, rgb(18 69 86 / 0.035), transparent 32rem),
+    linear-gradient(#07080b, #050609);
+}
+
+.filters-backdrop {
+  animation: filters-fade-in 160ms ease-out;
+}
+
+.filters-drawer {
+  animation: filters-slide-in 210ms ease-out;
+}
+
+.auth-scene {
+  position: relative;
+  isolation: isolate;
+  background:
+    radial-gradient(circle at 42% 55%, rgb(155 31 27 / 0.21), transparent 19%),
+    radial-gradient(circle at 70% 50%, rgb(8 51 67 / 0.26), transparent 29%),
+    linear-gradient(112deg, #111a1b 0%, #0a1013 26%, #070a0d 58%, #11181a 100%);
+}
+
+.auth-scene::before {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  content: "";
+  background:
+    linear-gradient(83deg, transparent 4%, rgb(2 4 5 / 0.84) 5% 9%, transparent 10%),
+    linear-gradient(99deg, transparent 15%, rgb(2 4 5 / 0.88) 16% 20%, transparent 21%),
+    linear-gradient(88deg, transparent 33%, rgb(2 4 5 / 0.82) 34% 38%, transparent 39%),
+    linear-gradient(95deg, transparent 79%, rgb(2 4 5 / 0.86) 80% 85%, transparent 86%),
+    repeating-linear-gradient(111deg, rgb(8 15 16 / 0.28) 0 3px, transparent 4px 62px);
+  filter: blur(0.5px);
+}
+
+.auth-forest-shadow {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background:
+    linear-gradient(0deg, rgb(3 5 7 / 0.82), transparent 47%),
+    radial-gradient(ellipse at 50% 48%, transparent 22%, rgb(0 0 0 / 0.5) 80%);
+}
+
+.auth-frame {
+  min-height: min(760px, calc(100vh - 44px));
+  background:
+    radial-gradient(circle at 42% 54%, rgb(39 53 56 / 0.25), transparent 28%),
+    linear-gradient(90deg, rgb(2 3 5 / 0.86), rgb(1 2 3 / 0.76));
+  box-shadow:
+    0 28px 74px rgb(0 0 0 / 0.68),
+    inset 0 0 80px rgb(0 0 0 / 0.42);
+}
+
+.auth-form-card {
+  background: rgb(0 0 0 / 0.48);
+  box-shadow: inset 0 0 72px rgb(0 0 0 / 0.46);
+}
+
+.auth-logo {
+  text-shadow: 0 3px 19px rgb(0 0 0 / 0.85);
+}
+
+.auth-submit {
+  background:
+    radial-gradient(ellipse at 50% 50%, rgb(133 0 6 / 0.98), rgb(29 4 6 / 0.84) 76%),
+    #210407;
+  box-shadow: inset 0 0 30px rgb(186 0 13 / 0.24);
+}
+
+@keyframes filters-fade-in {
+  from {
+    opacity: 0;
+  }
+}
+
+@keyframes filters-slide-in {
+  from {
+    transform: translateX(28px);
+    opacity: 0;
+  }
+}
+
+.sidebar-utility {
+  @apply flex h-[39px] w-full items-center gap-2 rounded-[4px] border border-arena-outline px-3 text-[8px] font-semibold text-arena-muted transition-colors;
+}
+
+.sidebar-utility:hover {
+  border-color: rgb(229 30 45 / 0.72);
+  background: rgb(229 30 45 / 0.1);
+  color: var(--color-arena-strong);
+}
+
+.profile-orb {
+  background-image:
+    radial-gradient(circle at 58% 33%, rgb(151 84 66 / 0.58), transparent 17%),
+    linear-gradient(118deg, #1a1617, #08090a 44%, #261111);
+  box-shadow: inset 0 0 20px rgb(0 0 0 / 0.75);
+}
+
+.leader-avatar {
+  background-image:
+    radial-gradient(circle at 60% 28%, rgb(174 68 53 / 0.62), transparent 15%),
+    linear-gradient(125deg, #17191c, #08090b 53%, #32161a);
+}
+
+.activity-mark {
+  background:
+    radial-gradient(circle at 46% 38%, rgb(240 170 155 / 0.88), transparent 31%),
+    linear-gradient(135deg, #68181b, #e27868 52%, #461014);
+  box-shadow: inset 0 0 9px rgb(0 0 0 / 0.35);
+}
+
+.ranking-row-art {
+  position: relative;
+  display: block;
+  overflow: hidden;
+  background:
+    radial-gradient(circle at 42% 49%, rgb(184 32 31 / 0.53), transparent 32%),
+    linear-gradient(102deg, #19090b, #431013 54%, #1b090b);
+}
+
+.ranking-row-art::before {
+  position: absolute;
+  inset: 0;
+  content: "";
+  background:
+    repeating-linear-gradient(
+      106deg,
+      transparent 0 13px,
+      rgb(242 55 46 / 0.18) 14px,
+      transparent 17px
+    ),
+    linear-gradient(90deg, rgb(0 0 0 / 0.44), transparent);
+}
+
+.not-found-scene {
+  background:
+    radial-gradient(circle at 50% 42%, rgb(229 30 45 / 0.14), transparent 26%),
+    radial-gradient(circle at 50% 40%, rgb(13 103 130 / 0.09), transparent 46%),
+    linear-gradient(112deg, #050609, #07070b 48%, #0b070b);
+  box-shadow:
+    inset 0 0 110px rgb(0 0 0 / 0.68),
+    var(--shadow-panel);
+}
+
+.not-found-scene::after {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  content: "";
+  background:
+    linear-gradient(0deg, rgb(0 0 0 / 0.64), transparent 45%),
+    radial-gradient(circle at 50% 45%, transparent, rgb(0 0 0 / 0.3) 65%);
+}
+
+.not-found-grid {
+  background-image:
+    linear-gradient(rgb(255 255 255 / 0.027) 1px, transparent 1px),
+    linear-gradient(90deg, rgb(255 255 255 / 0.027) 1px, transparent 1px);
+  background-size: 58px 58px;
+  mask-image: radial-gradient(ellipse at center, black, transparent 69%);
+}
+
+.not-found-sigil {
+  border: 1px solid rgb(229 30 45 / 0.12);
+  box-shadow:
+    0 0 65px rgb(229 30 45 / 0.08),
+    inset 0 0 65px rgb(229 30 45 / 0.05);
+}
+
+.not-found-sigil::before,
+.not-found-sigil::after {
+  position: absolute;
+  content: "";
+  border: 1px solid rgb(229 30 45 / 0.13);
+  transform: rotate(45deg);
+}
+
+.not-found-sigil::before {
+  inset: 18%;
+}
+
+.not-found-sigil::after {
+  inset: 32%;
+  border-color: rgb(21 111 143 / 0.22);
+}
+
+.not-found-number {
+  color: rgb(218 215 215 / 0.94);
+  text-shadow:
+    0 0 54px rgb(229 30 45 / 0.16),
+    0 5px 30px rgb(0 0 0 / 0.94);
+}
+
+.account-hero {
+  background:
+    radial-gradient(circle at 82% 44%, rgb(229 30 45 / 0.16), transparent 25%),
+    radial-gradient(circle at 69% 50%, rgb(13 103 130 / 0.08), transparent 36%),
+    linear-gradient(107deg, #050609, #06070a 58%, #12080d);
+}
+
+.account-hero::after {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  content: "";
+  background:
+    repeating-linear-gradient(
+      124deg,
+      transparent 0 44px,
+      rgb(255 255 255 / 0.018) 45px,
+      transparent 46px
+    ),
+    radial-gradient(circle at 83% 47%, transparent 0 17%, rgb(229 30 45 / 0.12) 17.3% 17.6%, transparent 18%);
+}
+
+.profile-banner {
+  background:
+    linear-gradient(90deg, transparent 0 28%, rgb(2 3 5 / 0.92) 63%),
+    radial-gradient(circle at 21% 30%, rgb(185 24 35 / 0.32), transparent 24%),
+    linear-gradient(112deg, #180709, #2d0b0e 38%, #050609 75%);
+}
+
+.profile-banner-art {
+  opacity: 0.58;
+  background:
+    repeating-linear-gradient(
+      112deg,
+      transparent 0 14px,
+      rgb(235 36 46 / 0.15) 15px,
+      transparent 19px
+    ),
+    radial-gradient(circle at 47% 31%, rgb(233 38 45 / 0.28), transparent 21%),
+    linear-gradient(180deg, transparent 0 50%, rgb(0 0 0 / 0.75) 50% 100%);
+  mask-image: linear-gradient(90deg, black, black 70%, transparent);
+}
+
+.profile-banner::after {
+  position: absolute;
+  inset: 50% 0 0;
+  content: "";
+  background:
+    linear-gradient(95deg, rgb(3 4 6 / 0.8), rgb(0 0 0 / 0.93)),
+    repeating-linear-gradient(
+      115deg,
+      rgb(225 32 43 / 0.1) 0 1px,
+      transparent 2px 23px
+    );
+}
+
+.profile-portrait {
+  z-index: 2;
+  background:
+    radial-gradient(circle at 47% 29%, rgb(174 91 65 / 0.42), transparent 12%),
+    radial-gradient(ellipse at 52% 41%, #1a1314 0 19%, transparent 20%),
+    linear-gradient(117deg, #111215, #050609 53%, #301116);
+  box-shadow:
+    inset 0 0 32px rgb(0 0 0 / 0.82),
+    0 0 24px rgb(229 30 45 / 0.16);
+}
+
+.profile-portrait::before {
+  position: absolute;
+  inset: 26% 27% 8%;
+  content: "";
+  background: linear-gradient(110deg, #1b1617, #060709 56%, #3e1319);
+  clip-path: polygon(49% 0, 69% 19%, 72% 39%, 91% 72%, 100% 100%, 0 100%, 13% 64%, 31% 36%);
+}
+
+.profile-portrait::after {
+  position: absolute;
+  inset: 0;
+  content: "";
+  border-radius: inherit;
+  background: repeating-linear-gradient(
+    112deg,
+    transparent 0 12px,
+    rgb(234 33 44 / 0.08) 13px,
+    transparent 15px
+  );
+}
+
+.profile-clan-emblem {
+  background:
+    radial-gradient(circle at 50% 48%, rgb(229 30 45 / 0.26), transparent 53%),
+    linear-gradient(135deg, #1b0a10, #050609 53%, #240c12);
+  box-shadow: inset 0 0 19px rgb(0 0 0 / 0.82);
+}
+
+.profile-clan-emblem::after {
+  display: block;
+  height: 74%;
+  width: 74%;
+  margin: 13%;
+  content: "";
+  background: linear-gradient(145deg, #e51e2d, #44080e);
+  clip-path: polygon(50% 0, 62% 34%, 92% 20%, 69% 53%, 81% 100%, 50% 72%, 19% 100%, 31% 53%, 8% 20%, 38% 34%);
+}
+
+.home-command-hero {
+  background-image:
+    radial-gradient(circle at 76% 42%, rgb(23 101 128 / 0.32), transparent 25%),
+    radial-gradient(circle at 64% 54%, rgb(184 19 36 / 0.33), transparent 32%),
+    linear-gradient(105deg, #07080b 0%, #07070b 42%, #100b11 68%, #061019 100%);
+  box-shadow:
+    inset 0 0 95px rgb(0 0 0 / 0.6),
+    var(--shadow-panel);
+}
+
+.home-command-hero::after {
+  position: absolute;
+  inset: auto 0 0;
+  height: 43%;
+  content: "";
+  background: linear-gradient(0deg, rgb(3 4 6 / 0.75), transparent);
+  z-index: -1;
+}
+
+.home-hero-grid {
+  background-image:
+    linear-gradient(rgb(255 255 255 / 0.032) 1px, transparent 1px),
+    linear-gradient(90deg, rgb(255 255 255 / 0.032) 1px, transparent 1px);
+  background-size: 54px 54px;
+  mask-image: radial-gradient(ellipse at 72% 46%, black, transparent 68%);
+}
+
+.home-hero-flare {
+  background:
+    radial-gradient(circle at 28% 52%, rgb(229 30 45 / 0.44), transparent 37%),
+    radial-gradient(circle at 70% 44%, rgb(5 147 190 / 0.4), transparent 39%);
+  filter: blur(14px);
+}
+
+.home-hero-sigil {
+  border: 1px solid rgb(229 30 45 / 0.28);
+  box-shadow:
+    inset 0 0 0 26px rgb(229 30 45 / 0.018),
+    inset 0 0 0 27px rgb(229 30 45 / 0.16),
+    0 0 70px rgb(229 30 45 / 0.12);
+}
+
+.home-hero-sigil::before,
+.home-hero-sigil::after {
+  position: absolute;
+  inset: 15%;
+  content: "";
+  border: 1px solid rgb(229 30 45 / 0.18);
+  transform: rotate(45deg);
+}
+
+.home-hero-sigil::after {
+  inset: 29%;
+  border-color: rgb(13 137 174 / 0.24);
+}
+
+.home-hero-warrior {
+  position: absolute;
+  bottom: -4%;
+  filter: drop-shadow(0 15px 20px #000);
+}
+
+.home-hero-warrior-back {
+  right: 5%;
+  height: 72%;
+  width: 25%;
+  opacity: 0.76;
+  background: linear-gradient(250deg, #12a8c4, #0c4358 34%, #090d13 78%);
+  clip-path: polygon(47% 0, 64% 11%, 68% 26%, 89% 42%, 98% 100%, 3% 100%, 15% 52%, 33% 29%);
+}
+
+.home-hero-warrior-front {
+  right: 24%;
+  height: 79%;
+  width: 27%;
+  background: linear-gradient(103deg, #0a0b10 16%, #541320 60%, #df2535 96%);
+  clip-path: polygon(48% 0, 66% 12%, 68% 28%, 83% 35%, 100% 100%, 0 100%, 20% 49%, 35% 25%);
+}
+
+.home-title-glow {
+  text-shadow:
+    0 0 30px rgb(229 30 45 / 0.18),
+    0 2px 24px #000;
+}
+
+.store-hero {
+  background:
+    radial-gradient(circle at 81% 42%, rgb(229 30 45 / 0.13), transparent 27%),
+    radial-gradient(circle at 66% 56%, rgb(137 19 33 / 0.12), transparent 32%),
+    linear-gradient(108deg, #050608 0%, #06070a 54%, #0d080d 100%);
+}
+
+.store-hero::after {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  content: "";
+  background:
+    linear-gradient(90deg, transparent 48%, rgb(229 30 45 / 0.06), transparent),
+    radial-gradient(circle at 82% 50%, transparent 0 19%, rgb(229 30 45 / 0.11) 19.4% 19.8%, transparent 20.2%);
+}
+
+.store-art {
+  background-color: #090a0e;
+  box-shadow: inset 0 0 45px rgb(0 0 0 / 0.65);
+}
+
+.store-art-pattern {
+  opacity: 0.55;
+  background-image:
+    repeating-linear-gradient(
+      120deg,
+      transparent 0,
+      transparent 20px,
+      rgb(255 255 255 / 0.025) 21px,
+      transparent 22px
+    ),
+    radial-gradient(circle at 50% 48%, rgb(255 255 255 / 0.08), transparent 38%);
+}
+
+.store-art-orb {
+  height: min(70%, 190px);
+  aspect-ratio: 1;
+  border: 1px solid rgb(229 30 45 / 0.27);
+  border-radius: 999px;
+  background: radial-gradient(circle, rgb(229 30 45 / 0.14), transparent 67%);
+  box-shadow:
+    0 0 40px rgb(229 30 45 / 0.2),
+    inset 0 0 25px rgb(229 30 45 / 0.16);
+}
+
+.store-art-decoration {
+  height: min(48%, 126px);
+  width: min(43%, 126px);
+  filter: drop-shadow(0 0 14px rgb(229 30 45 / 0.58));
+}
+
+.store-art-decoration::before,
+.store-art-decoration::after {
+  position: absolute;
+  content: "";
+  background: linear-gradient(155deg, #fb3140, #730912);
+}
+
+.store-art-decoration::before {
+  inset: 0;
+  clip-path: polygon(50% 0, 62% 30%, 92% 15%, 76% 70%, 50% 100%, 24% 70%, 8% 15%, 38% 30%);
+}
+
+.store-art-decoration::after {
+  inset: 33% 35%;
+  background: #090a0e;
+  clip-path: polygon(50% 0, 100% 100%, 0 100%);
+}
+
+.store-art-crown,
+.store-art-embers {
+  background-image:
+    radial-gradient(circle at 48% 45%, rgb(229 30 45 / 0.34), transparent 34%),
+    radial-gradient(circle at 75% 28%, rgb(185 103 24 / 0.2), transparent 31%),
+    linear-gradient(115deg, #1e080e, #08090d 60%, #160b0d);
+}
+
+.store-art-embers .store-art-decoration::before {
+  clip-path: polygon(51% 0, 70% 29%, 58% 43%, 81% 49%, 50% 100%, 17% 53%, 39% 39%, 31% 25%);
+}
+
+.store-art-veil {
+  background-image:
+    radial-gradient(circle at 50% 48%, rgb(180 20 43 / 0.27), transparent 35%),
+    linear-gradient(108deg, #18070e, #090a0f 56%, #130b12);
+}
+
+.store-art-veil .store-art-decoration::before,
+.store-art-ronin .store-art-decoration::before {
+  clip-path: polygon(0 25%, 50% 0, 100% 25%, 100% 76%, 50% 100%, 0 76%);
+}
+
+.store-art-veil .store-art-decoration::after,
+.store-art-ronin .store-art-decoration::after {
+  inset: 18% 10%;
+  clip-path: polygon(0 10%, 100% 10%, 100% 22%, 0 22%, 0 80%, 100% 80%, 100% 90%, 0 90%);
+}
+
+.store-art-spectral,
+.store-art-storm {
+  background-image:
+    radial-gradient(circle at 48% 48%, rgb(44 125 176 / 0.32), transparent 36%),
+    radial-gradient(circle at 70% 35%, rgb(134 68 192 / 0.2), transparent 25%),
+    linear-gradient(110deg, #07131b, #090a10 55%, #100a18);
+}
+
+.store-art-spectral .store-art-orb,
+.store-art-storm .store-art-orb {
+  border-color: rgb(92 172 226 / 0.3);
+  background: radial-gradient(circle, rgb(47 139 201 / 0.16), transparent 67%);
+  box-shadow: 0 0 40px rgb(31 119 194 / 0.24);
+}
+
+.store-art-spectral .store-art-decoration,
+.store-art-storm .store-art-decoration {
+  filter: drop-shadow(0 0 14px rgb(65 162 218 / 0.65));
+}
+
+.store-art-spectral .store-art-decoration::before,
+.store-art-storm .store-art-decoration::before {
+  background: linear-gradient(155deg, #76ddf5, #195b95);
+  clip-path: polygon(50% 0, 67% 30%, 93% 20%, 70% 47%, 84% 72%, 53% 58%, 50% 100%, 47% 58%, 16% 72%, 30% 47%, 7% 20%, 33% 30%);
+}
+
+.store-art-runes {
+  background-image:
+    radial-gradient(circle at 50% 48%, rgb(60 113 180 / 0.2), transparent 34%),
+    linear-gradient(112deg, #07131a, #080a10 50%, #14101a);
+}
+
+.store-art-runes .store-art-decoration::before {
+  background: linear-gradient(145deg, #80cee6, #40558e);
+  clip-path: polygon(50% 0, 61% 38%, 100% 50%, 61% 62%, 50% 100%, 39% 62%, 0 50%, 39% 38%);
+}
+
+.store-art-wings,
+.store-art-lotus,
+.store-art-eclipse {
+  background-image:
+    radial-gradient(circle at 48% 47%, rgb(233 39 54 / 0.28), transparent 35%),
+    radial-gradient(circle at 72% 35%, rgb(198 152 58 / 0.2), transparent 29%),
+    linear-gradient(111deg, #210912, #090a0d 52%, #16110c);
+}
+
+.store-art-wings .store-art-decoration::before,
+.store-art-eclipse .store-art-decoration::before {
+  background: linear-gradient(145deg, #f6d68e, #c21e33);
+  clip-path: polygon(50% 19%, 71% 0, 60% 39%, 100% 28%, 67% 59%, 82% 100%, 50% 72%, 18% 100%, 33% 59%, 0 28%, 40% 39%, 29% 0);
+}
+
+.store-art-lotus .store-art-decoration::before {
+  background: linear-gradient(145deg, #ffcf77, #e22038);
+  clip-path: polygon(50% 0, 62% 35%, 90% 18%, 74% 55%, 100% 68%, 60% 72%, 50% 100%, 40% 72%, 0 68%, 26% 55%, 10% 18%, 38% 35%);
+}
+
+.store-art-ronin {
+  background-image:
+    radial-gradient(circle at 50% 48%, rgb(197 32 46 / 0.25), transparent 34%),
+    linear-gradient(111deg, #17090d, #090a0d 54%, #0f1219);
+}
+
+.tournament-art {
+  background-color: #090b10;
+  box-shadow: inset 24px 0 25px rgb(0 0 0 / 0.62);
+}
+
+.art-initiation {
+  background-image:
+    radial-gradient(circle at 78% 43%, rgb(0 150 212 / 0.62), transparent 31%),
+    radial-gradient(circle at 20% 54%, rgb(230 21 39 / 0.72), transparent 36%),
+    linear-gradient(110deg, #250812, #090b10 49%, #051d2a);
+}
+
+.art-phantom {
+  background-image:
+    radial-gradient(circle at 78% 52%, rgb(214 20 47 / 0.5), transparent 31%),
+    radial-gradient(circle at 23% 46%, rgb(235 30 55 / 0.72), transparent 25%),
+    linear-gradient(100deg, #190711, #0e0d18 55%, #19101b);
+}
+
+.art-shadow {
+  background-image:
+    radial-gradient(circle at 76% 40%, rgb(12 112 168 / 0.7), transparent 33%),
+    radial-gradient(circle at 25% 49%, rgb(232 18 42 / 0.82), transparent 34%),
+    linear-gradient(115deg, #280811, #0b0c12 48%, #061821);
+}
+
+.art-vanguard {
+  background-image:
+    radial-gradient(circle at 77% 48%, rgb(0 129 148 / 0.72), transparent 34%),
+    radial-gradient(circle at 21% 42%, rgb(212 34 29 / 0.78), transparent 38%),
+    linear-gradient(112deg, #2c0d0c, #0a0c10 48%, #06232a);
+}
+
+.art-neon {
+  background-image:
+    radial-gradient(circle at 76% 47%, rgb(0 141 128 / 0.66), transparent 32%),
+    radial-gradient(circle at 18% 47%, rgb(207 25 47 / 0.75), transparent 30%),
+    linear-gradient(103deg, #260914, #080a11 49%, #082020);
+}
+
+.art-radiant {
+  background-image:
+    radial-gradient(circle at 77% 49%, rgb(2 160 171 / 0.78), transparent 34%),
+    radial-gradient(circle at 20% 52%, rgb(208 37 31 / 0.82), transparent 34%),
+    linear-gradient(108deg, #2e0a11, #0b0e12 50%, #06252b);
+}
+
+.art-crown {
+  background-image:
+    radial-gradient(circle at 74% 42%, rgb(194 139 22 / 0.54), transparent 31%),
+    radial-gradient(circle at 21% 56%, rgb(185 17 35 / 0.8), transparent 35%),
+    linear-gradient(110deg, #290810, #0e0b0c 53%, #211606);
+}
+
+.art-legends {
+  background-image:
+    radial-gradient(circle at 78% 45%, rgb(70 75 102 / 0.72), transparent 29%),
+    radial-gradient(circle at 18% 51%, rgb(102 21 34 / 0.7), transparent 32%),
+    linear-gradient(110deg, #18080d, #090a0f 50%, #121521);
+}
+
+.art-noise {
+  background-image:
+    repeating-linear-gradient(
+      115deg,
+      transparent 0,
+      transparent 10px,
+      rgb(255 255 255 / 0.038) 11px,
+      transparent 12px
+    ),
+    linear-gradient(90deg, rgb(0 0 0 / 0.3), transparent 45%, rgb(0 0 0 / 0.12));
+  mix-blend-mode: screen;
+}
+
+.art-warrior {
+  position: absolute;
+  bottom: -10%;
+  height: 98%;
+  width: 29%;
+  opacity: 0.83;
+  filter: drop-shadow(0 0 11px rgb(0 0 0 / 0.9));
+}
+
+.art-warrior-left {
+  left: 8%;
+  background: linear-gradient(90deg, #0d0e11, #5b1723 72%, #d92837);
+  clip-path: polygon(50% 0, 69% 13%, 72% 34%, 99% 59%, 83% 100%, 4% 100%, 22% 46%, 35% 28%);
+}
+
+.art-warrior-right {
+  right: 7%;
+  background: linear-gradient(270deg, #071219, #0c526b 68%, #12a8bf);
+  clip-path: polygon(49% 0, 70% 26%, 87% 44%, 99% 100%, 10% 100%, 1% 61%, 31% 34%);
+}
+
+.art-emblem {
+  text-align: center;
+  text-shadow: 0 1px 7px #000, 0 0 15px #000;
+}
