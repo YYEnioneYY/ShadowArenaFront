@@ -30,7 +30,7 @@ export function StoreHero({ featuredItem, onPreview }: StoreHeroProps) {
           </p>
           <div className="mt-7 flex items-center gap-4 min-[1900px]:mt-[38px]">
             <button
-              className="h-[39px] rounded-[3px] border border-crimson bg-crimson/15 px-6 text-[10px] font-semibold text-crimson transition-colors hover:bg-crimson hover:text-white xl:h-[47px] xl:text-[12px] min-[1900px]:h-[57px] min-[1900px]:px-[34px] min-[1900px]:text-[16px]"
+              className="h-[39px] rounded-[3px] border border-crimson bg-crimson/15 px-6 text-[10px] font-semibold text-crimson transition-colors hover:bg-crimson hover:text-arena-strong xl:h-[47px] xl:text-[12px] min-[1900px]:h-[57px] min-[1900px]:px-[34px] min-[1900px]:text-[16px]"
               onClick={() => onPreview(featuredItem)}
               type="button"
             >

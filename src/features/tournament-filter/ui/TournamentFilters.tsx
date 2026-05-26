@@ -56,7 +56,7 @@ export function TournamentFilters({
         <ArenaIcon className="h-3.5 w-3.5 xl:h-4 xl:w-4 2xl:h-5 2xl:w-5 min-[1900px]:h-6 min-[1900px]:w-6" name="filter" />
         FILTERS
         {advancedFilterCount > 0 && (
-          <span className="flex h-4 min-w-4 items-center justify-center rounded-full bg-crimson px-1 text-[8px] text-white xl:h-5 xl:min-w-5 xl:text-[10px]">
+          <span className="flex h-4 min-w-4 items-center justify-center rounded-full bg-crimson px-1 text-[8px] text-arena-strong xl:h-5 xl:min-w-5 xl:text-[10px]">
             {advancedFilterCount}
           </span>
         )}

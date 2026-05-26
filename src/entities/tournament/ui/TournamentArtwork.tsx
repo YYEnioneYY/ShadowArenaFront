@@ -29,7 +29,7 @@ export function TournamentArtwork({
         <span className="block text-[9px] font-semibold tracking-[0.22em] text-crimson xl:text-[11px] 2xl:text-[12px] min-[1900px]:text-[17px]">
           {game}
         </span>
-        <span className="block text-[34px] font-bold leading-none tracking-tight text-white xl:text-[42px] 2xl:text-[48px] min-[1900px]:text-[68px]">
+        <span className="block text-[34px] font-bold leading-none tracking-tight text-arena-strong xl:text-[42px] 2xl:text-[48px] min-[1900px]:text-[68px]">
           {format.toUpperCase().replace('V', ' V ')}
         </span>
         <span className="block text-[7px] tracking-[0.35em] text-neutral-300 xl:text-[8px] 2xl:text-[9px] min-[1900px]:text-[12px]">

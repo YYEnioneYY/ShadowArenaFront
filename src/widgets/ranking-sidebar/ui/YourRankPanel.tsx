@@ -12,17 +12,17 @@ export function YourRankPanel() {
   if (!isAuthenticated) {
     return (
       <Panel className="p-3 xl:p-4 min-[1900px]:p-[24px]">
-        <h2 className="font-display text-[15px] font-bold text-arena-copy xl:text-[18px] min-[1900px]:text-[28px]">
+        <h2 className="font-heading text-[15px] font-bold text-arena-copy xl:text-[18px] min-[1900px]:text-[28px]">
           YOUR RANK
         </h2>
-        <p className="mt-5 font-display text-[19px] text-arena-strong min-[1900px]:text-[29px]">
+        <p className="mt-5 font-heading text-[19px] text-arena-strong min-[1900px]:text-[29px]">
           UNRANKED
         </p>
         <p className="mt-3 text-[10px] leading-[1.6] text-arena-muted min-[1900px]:text-[14px]">
           Log in to reveal your standing among the warriors.
         </p>
         <Link
-          className="mt-5 flex h-[34px] w-full items-center justify-center rounded-[3px] border border-crimson text-[10px] font-semibold text-crimson transition-colors hover:bg-crimson hover:text-white min-[1900px]:h-[53px] min-[1900px]:text-[16px]"
+          className="mt-5 flex h-[34px] w-full items-center justify-center rounded-[3px] border border-crimson text-[10px] font-semibold text-crimson transition-colors hover:bg-crimson hover:text-arena-strong min-[1900px]:h-[53px] min-[1900px]:text-[16px]"
           to="/login"
         >
           LOGIN
@@ -42,10 +42,10 @@ export function YourRankPanel() {
 
   return (
     <Panel className="p-3 xl:p-4 min-[1900px]:p-[24px]">
-      <h2 className="font-display text-[15px] font-bold text-arena-copy xl:text-[18px] min-[1900px]:text-[28px]">
+      <h2 className="font-heading text-[15px] font-bold text-arena-copy xl:text-[18px] min-[1900px]:text-[28px]">
         YOUR RANK
       </h2>
-      <p className="mt-4 font-display text-[38px] leading-none text-crimson min-[1900px]:mt-[25px] min-[1900px]:text-[55px]">
+      <p className="mt-4 font-heading text-[38px] leading-none text-crimson min-[1900px]:mt-[25px] min-[1900px]:text-[55px]">
         #{currentRank.position}
       </p>
       <p className="text-[7px] text-arena-muted min-[1900px]:text-[10px]">
@@ -57,7 +57,7 @@ export function YourRankPanel() {
           tier={currentRank.tier}
         />
         <div className="ml-3 min-w-0 flex-1 min-[1900px]:ml-[18px]">
-          <p className="font-display text-[16px] font-bold text-crimson min-[1900px]:text-[24px]">
+          <p className="font-heading text-[16px] font-bold text-crimson min-[1900px]:text-[24px]">
             {currentRank.rankName}
           </p>
           <div className="mt-2 flex items-end justify-between">
@@ -85,7 +85,7 @@ export function YourRankPanel() {
             <p className="text-[6px] text-arena-muted min-[1900px]:text-[9px]">
               {stat.label}
             </p>
-            <p className="mt-1 font-display text-[15px] text-arena-strong min-[1900px]:text-[24px]">
+            <p className="mt-1 font-heading text-[15px] text-arena-strong min-[1900px]:text-[24px]">
               {stat.value}
             </p>
           </div>

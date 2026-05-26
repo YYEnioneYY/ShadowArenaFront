@@ -5,7 +5,7 @@ export function Panel({ className, ...props }: HTMLAttributes<HTMLDivElement>) {
   return (
     <div
       className={cn(
-        'rounded-[5px] border border-arena-line bg-arena-panel shadow-panel',
+        'arena-panel-surface rounded-[5px] border border-arena-line bg-arena-panel shadow-panel',
         className,
       )}
       {...props}

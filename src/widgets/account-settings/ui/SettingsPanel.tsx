@@ -74,7 +74,7 @@ export function SettingsPanel() {
           />
         </div>
         <button
-          className="mt-7 h-[44px] w-full rounded-[3px] border border-crimson bg-crimson/15 text-[11px] font-semibold text-crimson transition-colors hover:bg-crimson hover:text-white min-[1900px]:mt-[35px] min-[1900px]:h-[57px] min-[1900px]:text-[16px]"
+          className="mt-7 h-[44px] w-full rounded-[3px] border border-crimson bg-crimson/15 text-[11px] font-semibold text-crimson transition-colors hover:bg-crimson hover:text-arena-strong min-[1900px]:mt-[35px] min-[1900px]:h-[57px] min-[1900px]:text-[16px]"
           onClick={() => setSaved(true)}
           type="button"
         >

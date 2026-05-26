@@ -40,7 +40,7 @@ export function SettingToggle({
           className={cn(
             'absolute top-[3px] h-[17px] w-[17px] rounded-full transition-all min-[1900px]:top-[4px] min-[1900px]:h-[22px] min-[1900px]:w-[22px]',
             enabled
-              ? 'left-[25px] bg-crimson shadow-[0_0_10px_rgb(229_30_45/0.65)] min-[1900px]:left-[33px]'
+              ? 'left-[25px] bg-crimson shadow-[0_0_10px_rgb(255_45_45/0.65)] min-[1900px]:left-[33px]'
               : 'left-[4px] bg-arena-muted',
           )}
         />

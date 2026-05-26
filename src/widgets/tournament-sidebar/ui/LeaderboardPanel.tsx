@@ -7,9 +7,9 @@ export function LeaderboardPanel() {
   const leadingPlayers = ranking.top500.slice(0, 8)
 
   return (
-    <Panel className="p-3 xl:p-4 2xl:p-[18px] min-[1900px]:p-[24px]">
+    <Panel className="p-3 font-heading xl:p-4 2xl:p-[18px] min-[1900px]:p-[24px]">
       <div className="mb-2 flex items-center justify-between xl:mb-3 min-[1900px]:mb-[14px]">
-        <h2 className="font-display text-[15px] font-bold text-arena-copy xl:text-[18px] 2xl:text-[21px] min-[1900px]:text-[28px]">
+        <h2 className="font-heading text-[15px] font-bold text-arena-copy xl:text-[18px] 2xl:text-[21px] min-[1900px]:text-[28px]">
           LEADERBOARD
         </h2>
         <Link

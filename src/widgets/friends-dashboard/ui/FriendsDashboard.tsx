@@ -58,7 +58,7 @@ export function FriendsDashboard() {
             </p>
           </div>
           <button
-            className="h-[40px] rounded-[3px] border border-crimson px-5 text-[10px] font-semibold text-crimson transition-colors hover:bg-crimson hover:text-white min-[1900px]:h-[52px] min-[1900px]:px-[28px] min-[1900px]:text-[15px]"
+            className="h-[40px] rounded-[3px] border border-crimson px-5 text-[10px] font-semibold text-crimson transition-colors hover:bg-crimson hover:text-arena-strong min-[1900px]:h-[52px] min-[1900px]:px-[28px] min-[1900px]:text-[15px]"
             onClick={() => setNotice('Invite code copied: MORNINGSTAR#3456')}
             type="button"
           >
@@ -119,7 +119,7 @@ export function FriendsDashboard() {
                   </p>
                 </div>
                 <button
-                  className="h-[35px] rounded-[3px] border border-crimson bg-crimson/12 px-4 text-[9px] font-semibold text-crimson hover:bg-crimson hover:text-white min-[1900px]:h-[45px] min-[1900px]:text-[13px]"
+                  className="h-[35px] rounded-[3px] border border-crimson bg-crimson/12 px-4 text-[9px] font-semibold text-crimson hover:bg-crimson hover:text-arena-strong min-[1900px]:h-[45px] min-[1900px]:text-[13px]"
                   onClick={() => resolveRequest(request.id, true, request.name)}
                   type="button"
                 >

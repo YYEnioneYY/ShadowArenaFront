@@ -9,6 +9,7 @@ type IconName =
   | 'logout'
   | 'mail'
   | 'pulse'
+  | 'search'
   | 'shield'
   | 'settings'
   | 'user'
@@ -60,6 +61,12 @@ export function ArenaIcon({ name, ...props }: ArenaIconProps) {
       <>
         <circle cx="12" cy="12" r="9" />
         <path d="M7 12h3l2-4 2 8 2-4h2" />
+      </>
+    ),
+    search: (
+      <>
+        <circle cx="10.5" cy="10.5" r="7" />
+        <path d="m16 16 5 5" />
       </>
     ),
     shield: (

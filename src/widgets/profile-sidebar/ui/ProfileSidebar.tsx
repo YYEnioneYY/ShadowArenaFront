@@ -31,7 +31,7 @@ export function ProfileSidebar({ compact = false }: ProfileSidebarProps) {
 function AchievementsPanel() {
   return (
     <Panel className="p-4 xl:p-5 min-[1900px]:p-[25px]">
-      <h2 className="font-display text-[17px] font-bold text-arena-copy xl:text-[20px] min-[1900px]:text-[27px]">
+      <h2 className="font-heading text-[17px] font-bold text-arena-copy xl:text-[20px] min-[1900px]:text-[27px]">
         ACHIEVEMENTS
       </h2>
       <div className="mt-4 space-y-2 min-[1900px]:mt-[21px] min-[1900px]:space-y-[9px]">
@@ -63,12 +63,12 @@ function ClanPanel() {
 
   return (
     <Panel className="p-4 xl:p-5 min-[1900px]:p-[25px]">
-      <h2 className="font-display text-[17px] font-bold text-arena-copy xl:text-[20px] min-[1900px]:text-[27px]">
+      <h2 className="font-heading text-[17px] font-bold text-arena-copy xl:text-[20px] min-[1900px]:text-[27px]">
         CLAN
       </h2>
       <div className="mt-4 flex items-center gap-3 min-[1900px]:mt-[20px] min-[1900px]:gap-[17px]">
         <span className="profile-clan-emblem h-[58px] w-[58px] shrink-0 rounded-full border border-crimson min-[1900px]:h-[79px] min-[1900px]:w-[79px]" />
-        <p className="font-display text-[16px] font-bold text-arena-strong min-[1900px]:text-[23px]">
+        <p className="font-heading text-[16px] font-bold text-arena-strong min-[1900px]:text-[23px]">
           {mockProfileClan.name}
         </p>
       </div>
@@ -78,7 +78,7 @@ function ClanPanel() {
             <p className="text-[7px] text-arena-muted min-[1900px]:text-[10px]">
               {detail.label}
             </p>
-            <p className="mt-1 font-display text-[17px] text-arena-strong min-[1900px]:text-[25px]">
+            <p className="mt-1 font-heading text-[17px] text-arena-strong min-[1900px]:text-[25px]">
               {detail.value}
             </p>
           </div>
@@ -91,7 +91,7 @@ function ClanPanel() {
 function ProfileFriendsPanel() {
   return (
     <Panel className="p-4 xl:p-5 min-[1900px]:p-[25px]">
-      <h2 className="font-display text-[17px] font-bold text-arena-copy xl:text-[20px] min-[1900px]:text-[27px]">
+      <h2 className="font-heading text-[17px] font-bold text-arena-copy xl:text-[20px] min-[1900px]:text-[27px]">
         FRIENDS
       </h2>
       <div className="mt-4 space-y-2 min-[1900px]:mt-[20px] min-[1900px]:space-y-[9px]">

@@ -5,21 +5,8 @@ import { useActiveGameData } from '../../../features/game-selection/model/useAct
 import { useShop } from '../../../features/shop/model/useShop'
 import { cn } from '../../../shared/lib/cn'
 import { ArenaIcon } from '../../../shared/ui/ArenaIcon'
-
-const links = [
-  { label: 'HOME', to: '/' },
-  { label: 'TOURNAMENTS', to: '/tournaments' },
-  { label: 'RANKING', to: '/ranking' },
-  { label: 'CLANS', to: '/clans' },
-  { label: 'STORE', to: '/store' },
-]
-
-const accountMenuItems = [
-  { icon: 'user', label: 'PROFILE', to: '/profile' },
-  { icon: 'users', label: 'FRIENDS', to: '/friends' },
-  { icon: 'settings', label: 'SETTINGS', to: '/settings' },
-  { icon: 'shield', label: 'PRIVACY & SECURITY', to: '/privacy-security' },
-] as const
+import { accountMenuItems, appHeaderLinks } from '../model/navigation'
+import { MobileArenaMenu } from './MobileArenaMenu'
 
 const accountItemClassName =
   'flex h-[35px] w-full items-center rounded-[3px] px-2 text-left text-arena-copy transition-colors hover:bg-white/[0.045] hover:text-arena-strong min-[1900px]:h-[46px] min-[1900px]:px-[10px]'
@@ -30,9 +17,6 @@ export function AppHeader() {
   const { balance } = useShop()
   const location = useLocation()
   const [isAccountOpen, setIsAccountOpen] = useState(false)
-  const visibleLinks = links
-  const currentLink =
-    visibleLinks.find((link) => link.to === location.pathname) ?? visibleLinks[0]
   const isAccountRoute = [
     '/store',
     '/friends',
@@ -43,12 +27,14 @@ export function AppHeader() {
   const visibleProfile = isAccountRoute ? user?.profile : activeGameData.profile
 
   return (
-    <header className="flex h-[70px] items-center bg-arena-base px-5 md:px-7 xl:h-[86px] xl:px-8 2xl:h-[104px] 2xl:px-9 min-[1900px]:h-[144px] min-[1900px]:px-[40px]">
-      <p className="mr-8 font-display text-base text-arena-strong lg:hidden">
-        SHADOW ARENA
+    <header className="sticky top-0 z-30 flex h-[70px] items-center bg-[#0B0B0F] px-5 md:static md:z-auto md:px-7 xl:h-[86px] xl:px-8 2xl:h-[104px] 2xl:px-9 min-[1900px]:h-[144px] min-[1900px]:px-[40px]">
+      <p className="mr-8 font-display text-[15px] leading-[0.95] text-arena-strong lg:hidden">
+        SHADOW
+        <br />
+        ARENA
       </p>
       <nav className="hidden h-full items-center gap-9 md:flex xl:gap-12 2xl:gap-[58px] min-[1900px]:gap-[84px]">
-        {visibleLinks.map((link) => (
+        {appHeaderLinks.map((link) => (
           <NavLink
             className={({ isActive }) =>
               cn(
@@ -63,13 +49,7 @@ export function AppHeader() {
           </NavLink>
         ))}
       </nav>
-      <NavLink
-        className="text-[11px] font-medium text-crimson md:hidden"
-        to={currentLink.to}
-      >
-        {currentLink.label}
-      </NavLink>
-      <div className="ml-auto flex items-center gap-4 md:gap-6 xl:gap-8 2xl:gap-9 min-[1900px]:gap-[42px]">
+      <div className="ml-auto hidden items-center gap-4 md:flex md:gap-6 xl:gap-8 2xl:gap-9 min-[1900px]:gap-[42px]">
         {isAuthenticated && user && visibleProfile ? (
           <>
             <Link
@@ -77,7 +57,7 @@ export function AppHeader() {
               className="flex h-[34px] items-center gap-2 rounded-[3px] border border-arena-outline bg-[#090a0e] px-3 transition-colors hover:border-crimson xl:h-[42px] xl:px-4 2xl:h-[46px] min-[1900px]:h-[58px] min-[1900px]:gap-[12px] min-[1900px]:px-[21px]"
               to="/store"
             >
-              <span className="h-[9px] w-[9px] rounded-full bg-crimson shadow-[0_0_9px_rgb(229_30_45/0.8)] min-[1900px]:h-[13px] min-[1900px]:w-[13px]" />
+              <span className="h-[9px] w-[9px] rounded-full bg-crimson shadow-[0_0_9px_rgb(255_45_45/0.8)] min-[1900px]:h-[13px] min-[1900px]:w-[13px]" />
               <span className="whitespace-nowrap text-[10px] font-semibold text-arena-strong xl:text-[12px] 2xl:text-[13px] min-[1900px]:text-[17px]">
                 {balance.toLocaleString('en-US')}{' '}
                 <span className="text-crimson">CR</span>
@@ -142,7 +122,7 @@ export function AppHeader() {
                     ))}
                   </div>
                   <button
-                    className="mt-3 flex h-[34px] w-full items-center justify-center gap-2 rounded-[3px] border border-crimson text-[10px] font-semibold text-crimson transition-colors hover:bg-crimson hover:text-white min-[1900px]:mt-[16px] min-[1900px]:h-[45px] min-[1900px]:text-[14px]"
+                    className="mt-3 flex h-[34px] w-full items-center justify-center gap-2 rounded-[3px] border border-crimson text-[10px] font-semibold text-crimson transition-colors hover:bg-crimson hover:text-arena-strong min-[1900px]:mt-[16px] min-[1900px]:h-[45px] min-[1900px]:text-[14px]"
                     onClick={() => {
                       logout()
                       setIsAccountOpen(false)
@@ -166,7 +146,7 @@ export function AppHeader() {
               LOGIN
             </Link>
             <Link
-              className="flex h-[34px] items-center rounded-[3px] border border-crimson px-4 text-[10px] font-semibold text-crimson transition-colors hover:bg-crimson hover:text-white xl:h-[42px] xl:px-5 xl:text-[12px] min-[1900px]:h-[54px] min-[1900px]:px-[29px] min-[1900px]:text-[16px]"
+              className="flex h-[34px] items-center rounded-[3px] border border-crimson px-4 text-[10px] font-semibold text-crimson transition-colors hover:bg-crimson hover:text-arena-strong xl:h-[42px] xl:px-5 xl:text-[12px] min-[1900px]:h-[54px] min-[1900px]:px-[29px] min-[1900px]:text-[16px]"
               to="/register"
             >
               REGISTER
@@ -174,6 +154,7 @@ export function AppHeader() {
           </div>
         )}
       </div>
+      <MobileArenaMenu />
     </header>
   )
 }

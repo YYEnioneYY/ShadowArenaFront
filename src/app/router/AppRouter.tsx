@@ -1,5 +1,6 @@
 import { Route, Routes } from 'react-router-dom'
 import { AuthPage } from '../../pages/auth'
+import { ClansPage } from '../../pages/clans'
 import { FriendsPage } from '../../pages/friends'
 import { HomePage } from '../../pages/home'
 import { NotFoundPage } from '../../pages/not-found'
@@ -16,6 +17,7 @@ export function AppRouter() {
       <Route path="/" element={<HomePage />} />
       <Route path="/tournaments" element={<TournamentsPage />} />
       <Route path="/ranking" element={<RankingPage />} />
+      <Route path="/clans" element={<ClansPage />} />
       <Route path="/store" element={<StorePage />} />
       <Route path="/friends" element={<FriendsPage />} />
       <Route path="/settings" element={<SettingsPage />} />

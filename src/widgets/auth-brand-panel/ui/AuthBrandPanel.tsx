@@ -8,7 +8,7 @@ interface AuthBrandPanelProps {
 export function AuthBrandPanel({ mode }: AuthBrandPanelProps) {
   return (
     <aside className="relative hidden flex-col p-8 md:flex lg:p-[34px] min-[1900px]:p-[44px]">
-      <h1 className="auth-logo font-display text-[42px] leading-[0.86] text-white lg:text-[56px] min-[1900px]:text-[68px]">
+      <h1 className="auth-logo font-display text-[42px] leading-[0.86] text-arena-strong lg:text-[56px] min-[1900px]:text-[68px]">
         SHADOW
         <br />
         ARENA

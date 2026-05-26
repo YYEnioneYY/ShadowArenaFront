@@ -15,7 +15,7 @@ export function UpcomingTournamentPanel() {
 
   return (
     <Panel className="p-3 xl:p-4 2xl:p-[18px] min-[1900px]:p-[24px]">
-      <h2 className="mb-3 font-display text-[15px] font-bold text-arena-copy xl:text-[18px] 2xl:mb-4 2xl:text-[21px] min-[1900px]:mb-[27px] min-[1900px]:text-[28px]">
+      <h2 className="mb-3 font-heading text-[15px] font-bold text-arena-copy xl:text-[18px] 2xl:mb-4 2xl:text-[21px] min-[1900px]:mb-[27px] min-[1900px]:text-[28px]">
         UPCOMING TOURNAMENT
       </h2>
       <div className="h-[108px] overflow-hidden rounded-[2px] xl:h-[140px] 2xl:h-[162px] min-[1900px]:h-[209px]">
@@ -45,7 +45,7 @@ export function UpcomingTournamentPanel() {
         ))}
       </div>
       <button
-        className="mt-3 h-[31px] w-full rounded-[3px] border border-crimson text-[9px] font-semibold text-crimson transition-colors hover:bg-crimson hover:text-white xl:mt-4 xl:h-[40px] xl:text-[12px] 2xl:h-[44px] 2xl:text-[13px] min-[1900px]:mt-[15px] min-[1900px]:h-[59px] min-[1900px]:text-[18px]"
+        className="mt-3 h-[31px] w-full rounded-[3px] border border-crimson text-[9px] font-semibold text-crimson transition-colors hover:bg-crimson hover:text-arena-strong xl:mt-4 xl:h-[40px] xl:text-[12px] 2xl:h-[44px] 2xl:text-[13px] min-[1900px]:mt-[15px] min-[1900px]:h-[59px] min-[1900px]:text-[18px]"
         type="button"
       >
         VIEW DETAILS

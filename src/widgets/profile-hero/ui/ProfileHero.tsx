@@ -37,7 +37,7 @@ export function ProfileHero() {
         </div>
         <div className="mt-1 h-[3px] max-w-[440px] bg-arena-outline min-[1900px]:max-w-[570px] min-[1900px]:h-[4px]">
           <div
-            className="h-full bg-crimson shadow-[0_0_9px_rgb(229_30_45/0.7)]"
+            className="h-full bg-crimson shadow-[0_0_9px_rgb(255_45_45/0.7)]"
             style={{ width: `${progress}%` }}
           />
         </div>

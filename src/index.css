@@ -3,6 +3,7 @@
 @theme {
   --font-interface: "Exo", "Arial Narrow", sans-serif;
   --font-display: "Cinzel Decorative", Georgia, serif;
+  --font-heading: "Cinzel", Georgia, serif;
 
   --color-arena-base: #07080b;
   --color-arena-panel: #030406;
@@ -11,8 +12,8 @@
   --color-arena-copy: #a7a5a7;
   --color-arena-muted: #73747d;
   --color-arena-dim: #53545d;
-  --color-arena-strong: #d5d3d3;
-  --color-crimson: #e51e2d;
+  --color-arena-strong: #f6f0e7;
+  --color-crimson: #ff2d2d;
 
   --shadow-panel: inset 0 0 0 1px rgb(255 255 255 / 0.018), 0 1px 12px rgb(0 0 0 / 0.38);
 }
@@ -63,12 +64,29 @@ button {
     linear-gradient(#07080b, #050609);
 }
 
+.arena-panel-surface {
+  background-image: radial-gradient(
+    circle at 0% 0%,
+    rgb(255 255 255 / 0.3),
+    rgb(153 153 153 / 0.3) 100%
+  );
+  background-blend-mode: soft-light;
+}
+
 .filters-backdrop {
   animation: filters-fade-in 160ms ease-out;
 }
 
 .filters-drawer {
   animation: filters-slide-in 210ms ease-out;
+}
+
+.mobile-menu-backdrop {
+  animation: filters-fade-in 170ms ease-out;
+}
+
+.mobile-menu-drawer {
+  animation: mobile-menu-slide-in 220ms ease-out;
 }
 
 .auth-scene {
@@ -142,14 +160,32 @@ button {
   }
 }
 
+@keyframes mobile-menu-slide-in {
+  from {
+    transform: translateX(28px);
+    opacity: 0;
+  }
+}
+
 .sidebar-utility {
   @apply flex h-[39px] w-full items-center gap-2 rounded-[4px] border border-arena-outline px-3 text-[8px] font-semibold text-arena-muted transition-colors;
 }
 
 .sidebar-utility:hover {
-  border-color: rgb(229 30 45 / 0.72);
-  background: rgb(229 30 45 / 0.1);
+  border-color: rgb(255 45 45 / 0.72);
+  background: rgb(255 45 45 / 0.1);
   color: var(--color-arena-strong);
+}
+
+.sidebar-games-scroll {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.sidebar-games-scroll::-webkit-scrollbar {
+  display: none;
+  width: 0;
+  height: 0;
 }
 
 .profile-orb {
@@ -197,7 +233,7 @@ button {
 
 .not-found-scene {
   background:
-    radial-gradient(circle at 50% 42%, rgb(229 30 45 / 0.14), transparent 26%),
+    radial-gradient(circle at 50% 42%, rgb(255 45 45 / 0.14), transparent 26%),
     radial-gradient(circle at 50% 40%, rgb(13 103 130 / 0.09), transparent 46%),
     linear-gradient(112deg, #050609, #07070b 48%, #0b070b);
   box-shadow:
@@ -224,17 +260,17 @@ button {
 }
 
 .not-found-sigil {
-  border: 1px solid rgb(229 30 45 / 0.12);
+  border: 1px solid rgb(255 45 45 / 0.12);
   box-shadow:
-    0 0 65px rgb(229 30 45 / 0.08),
-    inset 0 0 65px rgb(229 30 45 / 0.05);
+    0 0 65px rgb(255 45 45 / 0.08),
+    inset 0 0 65px rgb(255 45 45 / 0.05);
 }
 
 .not-found-sigil::before,
 .not-found-sigil::after {
   position: absolute;
   content: "";
-  border: 1px solid rgb(229 30 45 / 0.13);
+  border: 1px solid rgb(255 45 45 / 0.13);
   transform: rotate(45deg);
 }
 
@@ -250,13 +286,13 @@ button {
 .not-found-number {
   color: rgb(218 215 215 / 0.94);
   text-shadow:
-    0 0 54px rgb(229 30 45 / 0.16),
+    0 0 54px rgb(255 45 45 / 0.16),
     0 5px 30px rgb(0 0 0 / 0.94);
 }
 
 .account-hero {
   background:
-    radial-gradient(circle at 82% 44%, rgb(229 30 45 / 0.16), transparent 25%),
+    radial-gradient(circle at 82% 44%, rgb(255 45 45 / 0.16), transparent 25%),
     radial-gradient(circle at 69% 50%, rgb(13 103 130 / 0.08), transparent 36%),
     linear-gradient(107deg, #050609, #06070a 58%, #12080d);
 }
@@ -273,7 +309,7 @@ button {
       rgb(255 255 255 / 0.018) 45px,
       transparent 46px
     ),
-    radial-gradient(circle at 83% 47%, transparent 0 17%, rgb(229 30 45 / 0.12) 17.3% 17.6%, transparent 18%);
+    radial-gradient(circle at 83% 47%, transparent 0 17%, rgb(255 45 45 / 0.12) 17.3% 17.6%, transparent 18%);
 }
 
 .profile-banner {
@@ -318,7 +354,7 @@ button {
     linear-gradient(117deg, #111215, #050609 53%, #301116);
   box-shadow:
     inset 0 0 32px rgb(0 0 0 / 0.82),
-    0 0 24px rgb(229 30 45 / 0.16);
+    0 0 24px rgb(255 45 45 / 0.16);
 }
 
 .profile-portrait::before {
@@ -344,7 +380,7 @@ button {
 
 .profile-clan-emblem {
   background:
-    radial-gradient(circle at 50% 48%, rgb(229 30 45 / 0.26), transparent 53%),
+    radial-gradient(circle at 50% 48%, rgb(255 45 45 / 0.26), transparent 53%),
     linear-gradient(135deg, #1b0a10, #050609 53%, #240c12);
   box-shadow: inset 0 0 19px rgb(0 0 0 / 0.82);
 }
@@ -355,8 +391,106 @@ button {
   width: 74%;
   margin: 13%;
   content: "";
-  background: linear-gradient(145deg, #e51e2d, #44080e);
+  background: linear-gradient(145deg, #ff2d2d, #44080e);
   clip-path: polygon(50% 0, 62% 34%, 92% 20%, 69% 53%, 81% 100%, 50% 72%, 19% 100%, 31% 53%, 8% 20%, 38% 34%);
+}
+
+.clans-hero {
+  background:
+    radial-gradient(circle at 80% 38%, rgb(255 45 45 / 0.13), transparent 20%),
+    radial-gradient(circle at 67% 58%, rgb(10 87 112 / 0.08), transparent 29%),
+    linear-gradient(105deg, #030406 0%, #030406 53%, #0e070b 100%);
+}
+
+.clans-hero::after {
+  position: absolute;
+  inset: 0;
+  content: "";
+  background:
+    repeating-linear-gradient(
+      116deg,
+      transparent 0 27px,
+      rgb(255 45 45 / 0.035) 28px,
+      transparent 30px
+    ),
+    radial-gradient(circle at 81% 48%, transparent 0 14%, rgb(255 45 45 / 0.07) 14.3% 14.6%, transparent 15%);
+  mask-image: linear-gradient(90deg, transparent 34%, black);
+}
+
+.clan-card-art {
+  position: relative;
+  background:
+    radial-gradient(circle at 54% 43%, rgb(208 29 39 / 0.42), transparent 27%),
+    linear-gradient(110deg, #23080d, #07080c 58%, #15090d);
+}
+
+.clan-card-art::after {
+  position: absolute;
+  inset: 0;
+  content: "";
+  background:
+    repeating-linear-gradient(
+      109deg,
+      transparent 0 10px,
+      rgb(235 37 44 / 0.16) 11px,
+      transparent 13px
+    ),
+    linear-gradient(90deg, rgb(0 0 0 / 0.2), transparent);
+}
+
+.clan-membership-banner {
+  background:
+    linear-gradient(90deg, rgb(2 4 5 / 0.25), rgb(1 3 4 / 0.9) 43%, rgb(1 3 4 / 0.96)),
+    radial-gradient(circle at 25% 32%, rgb(19 122 127 / 0.34), transparent 22%),
+    radial-gradient(circle at 14% 70%, rgb(167 24 34 / 0.29), transparent 30%),
+    linear-gradient(115deg, #08131a, #0f1815 35%, #040507 73%);
+}
+
+.clan-membership-banner::before {
+  position: absolute;
+  inset: 0;
+  content: "";
+  background:
+    repeating-linear-gradient(
+      108deg,
+      transparent 0 17px,
+      rgb(64 148 145 / 0.085) 18px,
+      transparent 21px
+    ),
+    linear-gradient(0deg, rgb(0 0 0 / 0.34), transparent 56%);
+}
+
+.clan-membership-crest {
+  z-index: 1;
+  background:
+    radial-gradient(circle at 48% 48%, rgb(14 87 102 / 0.32), transparent 40%),
+    radial-gradient(circle at 48% 31%, rgb(102 159 151 / 0.2), transparent 28%),
+    linear-gradient(145deg, #0b2229, #051014 54%, #161015);
+  box-shadow:
+    inset 0 0 30px rgb(0 0 0 / 0.55),
+    0 0 20px rgb(255 45 45 / 0.16);
+}
+
+.clan-membership-crest::after {
+  position: absolute;
+  inset: 12%;
+  content: "";
+  background:
+    linear-gradient(135deg, transparent 28%, rgb(106 181 178 / 0.24), transparent 58%),
+    repeating-linear-gradient(
+      98deg,
+      transparent 0 8px,
+      rgb(255 45 45 / 0.1) 9px,
+      transparent 12px
+    );
+  border-radius: inherit;
+}
+
+.clan-member-avatar {
+  background:
+    radial-gradient(circle at 57% 28%, rgb(161 73 58 / 0.52), transparent 16%),
+    linear-gradient(124deg, #17191b, #08090b 53%, #34141a);
+  box-shadow: inset 0 0 18px rgb(0 0 0 / 0.72);
 }
 
 .home-command-hero {
@@ -367,6 +501,52 @@ button {
   box-shadow:
     inset 0 0 95px rgb(0 0 0 / 0.6),
     var(--shadow-panel);
+}
+
+.home-landing-frame {
+  min-height: calc(100vh - 70px);
+  background:
+    radial-gradient(circle at 52% 18%, rgb(255 255 255 / 0.018), transparent 21%),
+    linear-gradient(#020305, #020305);
+}
+
+.home-entry-hero {
+  background: radial-gradient(ellipse at 50% 40%, rgb(255 255 255 / 0.018), transparent 34%);
+}
+
+.home-entry-logo {
+  text-shadow:
+    0 3px 19px rgb(0 0 0 / 0.95),
+    0 0 35px rgb(255 255 255 / 0.025);
+}
+
+.home-scroll-row {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.home-scroll-row::-webkit-scrollbar {
+  display: none;
+  width: 0;
+  height: 0;
+}
+
+@media (min-width: 1280px) {
+  .home-landing-frame {
+    min-height: calc(100vh - 86px);
+  }
+}
+
+@media (min-width: 1536px) {
+  .home-landing-frame {
+    min-height: calc(100vh - 104px);
+  }
+}
+
+@media (min-width: 1900px) {
+  .home-landing-frame {
+    min-height: calc(100vh - 144px);
+  }
 }
 
 .home-command-hero::after {
@@ -388,17 +568,17 @@ button {
 
 .home-hero-flare {
   background:
-    radial-gradient(circle at 28% 52%, rgb(229 30 45 / 0.44), transparent 37%),
+    radial-gradient(circle at 28% 52%, rgb(255 45 45 / 0.44), transparent 37%),
     radial-gradient(circle at 70% 44%, rgb(5 147 190 / 0.4), transparent 39%);
   filter: blur(14px);
 }
 
 .home-hero-sigil {
-  border: 1px solid rgb(229 30 45 / 0.28);
+  border: 1px solid rgb(255 45 45 / 0.28);
   box-shadow:
-    inset 0 0 0 26px rgb(229 30 45 / 0.018),
-    inset 0 0 0 27px rgb(229 30 45 / 0.16),
-    0 0 70px rgb(229 30 45 / 0.12);
+    inset 0 0 0 26px rgb(255 45 45 / 0.018),
+    inset 0 0 0 27px rgb(255 45 45 / 0.16),
+    0 0 70px rgb(255 45 45 / 0.12);
 }
 
 .home-hero-sigil::before,
@@ -406,7 +586,7 @@ button {
   position: absolute;
   inset: 15%;
   content: "";
-  border: 1px solid rgb(229 30 45 / 0.18);
+  border: 1px solid rgb(255 45 45 / 0.18);
   transform: rotate(45deg);
 }
 
@@ -440,13 +620,13 @@ button {
 
 .home-title-glow {
   text-shadow:
-    0 0 30px rgb(229 30 45 / 0.18),
+    0 0 30px rgb(255 45 45 / 0.18),
     0 2px 24px #000;
 }
 
 .store-hero {
   background:
-    radial-gradient(circle at 81% 42%, rgb(229 30 45 / 0.13), transparent 27%),
+    radial-gradient(circle at 81% 42%, rgb(255 45 45 / 0.13), transparent 27%),
     radial-gradient(circle at 66% 56%, rgb(137 19 33 / 0.12), transparent 32%),
     linear-gradient(108deg, #050608 0%, #06070a 54%, #0d080d 100%);
 }
@@ -457,8 +637,8 @@ button {
   pointer-events: none;
   content: "";
   background:
-    linear-gradient(90deg, transparent 48%, rgb(229 30 45 / 0.06), transparent),
-    radial-gradient(circle at 82% 50%, transparent 0 19%, rgb(229 30 45 / 0.11) 19.4% 19.8%, transparent 20.2%);
+    linear-gradient(90deg, transparent 48%, rgb(255 45 45 / 0.06), transparent),
+    radial-gradient(circle at 82% 50%, transparent 0 19%, rgb(255 45 45 / 0.11) 19.4% 19.8%, transparent 20.2%);
 }
 
 .store-art {
@@ -482,18 +662,18 @@ button {
 .store-art-orb {
   height: min(70%, 190px);
   aspect-ratio: 1;
-  border: 1px solid rgb(229 30 45 / 0.27);
+  border: 1px solid rgb(255 45 45 / 0.27);
   border-radius: 999px;
-  background: radial-gradient(circle, rgb(229 30 45 / 0.14), transparent 67%);
+  background: radial-gradient(circle, rgb(255 45 45 / 0.14), transparent 67%);
   box-shadow:
-    0 0 40px rgb(229 30 45 / 0.2),
-    inset 0 0 25px rgb(229 30 45 / 0.16);
+    0 0 40px rgb(255 45 45 / 0.2),
+    inset 0 0 25px rgb(255 45 45 / 0.16);
 }
 
 .store-art-decoration {
   height: min(48%, 126px);
   width: min(43%, 126px);
-  filter: drop-shadow(0 0 14px rgb(229 30 45 / 0.58));
+  filter: drop-shadow(0 0 14px rgb(255 45 45 / 0.58));
 }
 
 .store-art-decoration::before,
@@ -517,7 +697,7 @@ button {
 .store-art-crown,
 .store-art-embers {
   background-image:
-    radial-gradient(circle at 48% 45%, rgb(229 30 45 / 0.34), transparent 34%),
+    radial-gradient(circle at 48% 45%, rgb(255 45 45 / 0.34), transparent 34%),
     radial-gradient(circle at 75% 28%, rgb(185 103 24 / 0.2), transparent 31%),
     linear-gradient(115deg, #1e080e, #08090d 60%, #160b0d);
 }

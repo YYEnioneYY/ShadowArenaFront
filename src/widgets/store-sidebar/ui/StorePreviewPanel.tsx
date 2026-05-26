@@ -34,7 +34,7 @@ export function StorePreviewPanel({ item }: StorePreviewPanelProps) {
   return (
     <Panel className="overflow-hidden p-3 xl:p-4 min-[1900px]:p-[20px]">
       <div className="flex items-baseline justify-between gap-2">
-        <h2 className="font-display text-[15px] text-arena-copy xl:text-[18px] min-[1900px]:text-[24px]">
+        <h2 className="font-heading text-[15px] text-arena-copy xl:text-[18px] min-[1900px]:text-[24px]">
           LIVE PREVIEW
         </h2>
         <span className="text-[8px] font-semibold tracking-[0.16em] text-crimson min-[1900px]:text-[11px]">
@@ -69,7 +69,7 @@ export function StorePreviewPanel({ item }: StorePreviewPanelProps) {
       </div>
       {!isAuthenticated ? (
         <Link
-          className="mt-4 flex h-[37px] items-center justify-center rounded-[3px] border border-crimson bg-crimson/12 text-[10px] font-semibold text-crimson transition-colors hover:bg-crimson hover:text-white xl:h-[44px] min-[1900px]:mt-[21px] min-[1900px]:h-[55px] min-[1900px]:text-[15px]"
+          className="mt-4 flex h-[37px] items-center justify-center rounded-[3px] border border-crimson bg-crimson/12 text-[10px] font-semibold text-crimson transition-colors hover:bg-crimson hover:text-arena-strong xl:h-[44px] min-[1900px]:mt-[21px] min-[1900px]:h-[55px] min-[1900px]:text-[15px]"
           state={{ from: '/store' }}
           to="/login"
         >
@@ -83,7 +83,7 @@ export function StorePreviewPanel({ item }: StorePreviewPanelProps) {
                 'mt-4 h-[37px] w-full rounded-[3px] border text-[10px] font-semibold transition-colors xl:h-[44px] min-[1900px]:mt-[21px] min-[1900px]:h-[55px] min-[1900px]:text-[15px]',
                 equipped || item.category === 'bundle'
                   ? 'border-arena-outline text-arena-muted'
-                  : 'border-crimson bg-crimson/10 text-crimson hover:bg-crimson hover:text-white',
+                  : 'border-crimson bg-crimson/10 text-crimson hover:bg-crimson hover:text-arena-strong',
               )}
               disabled={equipped || item.category === 'bundle'}
               onClick={() => setMessage(equip(item).message)}

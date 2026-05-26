@@ -13,14 +13,14 @@ export function PlayerProgressPanel() {
         <p className="text-[8px] font-semibold tracking-[0.2em] text-crimson min-[1900px]:text-[12px]">
           WARRIOR ACCESS
         </p>
-        <h2 className="mt-3 font-display text-[19px] text-arena-strong xl:text-[23px] min-[1900px]:text-[31px]">
+        <h2 className="mt-3 font-heading text-[19px] text-arena-strong xl:text-[23px] min-[1900px]:text-[31px]">
           ENTER THE ARENA
         </h2>
         <p className="mt-3 text-[10px] leading-[1.7] text-arena-muted xl:text-[12px] min-[1900px]:text-[15px]">
           Sign in to reveal your rank, rewards and personal tournament history.
         </p>
         <Link
-          className="mt-5 flex h-[36px] w-full items-center justify-center rounded-[3px] border border-crimson bg-crimson/10 text-[10px] font-semibold text-crimson transition-colors hover:bg-crimson hover:text-white xl:h-[42px] min-[1900px]:mt-7 min-[1900px]:h-[53px] min-[1900px]:text-[16px]"
+          className="mt-5 flex h-[36px] w-full items-center justify-center rounded-[3px] border border-crimson bg-crimson/10 text-[10px] font-semibold text-crimson transition-colors hover:bg-crimson hover:text-arena-strong xl:h-[42px] min-[1900px]:mt-7 min-[1900px]:h-[53px] min-[1900px]:text-[16px]"
           to="/login"
         >
           LOGIN
@@ -43,7 +43,7 @@ export function PlayerProgressPanel() {
           <p className="text-[8px] font-semibold tracking-[0.2em] text-crimson min-[1900px]:text-[12px]">
             {game.title}
           </p>
-          <h2 className="font-display text-[15px] text-arena-strong xl:text-[18px] min-[1900px]:text-[24px]">
+          <h2 className="font-heading text-[15px] text-arena-strong xl:text-[18px] min-[1900px]:text-[24px]">
             {profile.name}
           </h2>
           <p className="text-[9px] text-arena-muted min-[1900px]:text-[13px]">
@@ -67,7 +67,7 @@ export function PlayerProgressPanel() {
         </div>
         <div className="mt-4 h-[4px] overflow-hidden rounded-full bg-arena-outline min-[1900px]:h-[6px]">
           <div
-            className="h-full bg-crimson shadow-[0_0_10px_rgb(229_30_45/0.8)]"
+            className="h-full bg-crimson shadow-[0_0_10px_rgb(255_45_45/0.8)]"
             style={{ width: `${profile.rankProgress}%` }}
           />
         </div>
@@ -77,7 +77,7 @@ export function PlayerProgressPanel() {
         </div>
       </div>
       <button
-        className="mt-5 h-[34px] w-full rounded-[3px] border border-crimson text-[10px] font-semibold text-crimson transition-colors hover:bg-crimson hover:text-white xl:h-[40px] min-[1900px]:mt-7 min-[1900px]:h-[53px] min-[1900px]:text-[16px]"
+        className="mt-5 h-[34px] w-full rounded-[3px] border border-crimson text-[10px] font-semibold text-crimson transition-colors hover:bg-crimson hover:text-arena-strong xl:h-[40px] min-[1900px]:mt-7 min-[1900px]:h-[53px] min-[1900px]:text-[16px]"
         type="button"
       >
         VIEW PROFILE

@@ -13,7 +13,7 @@ export function RecentActivityPanel({
 }: RecentActivityPanelProps) {
   return (
     <Panel className="min-h-[137px] flex-1 p-3 xl:p-4 min-[1900px]:p-[24px]">
-      <h2 className="mb-3 font-display text-[15px] font-bold text-arena-copy xl:text-[18px] 2xl:text-[21px] min-[1900px]:mb-[18px] min-[1900px]:text-[28px]">
+      <h2 className="mb-3 font-heading text-[15px] font-bold text-arena-copy xl:text-[18px] 2xl:text-[21px] min-[1900px]:mb-[18px] min-[1900px]:text-[28px]">
         RECENT ACTIVITY
       </h2>
       <div className="space-y-[4px] min-[1900px]:space-y-[7px]">

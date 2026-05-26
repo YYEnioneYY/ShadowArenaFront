@@ -47,7 +47,7 @@ interface FilterSectionProps {
 function FilterSection({ children, title }: FilterSectionProps) {
   return (
     <fieldset>
-      <legend className="mb-3 font-display text-[13px] font-bold text-arena-strong xl:text-[15px] min-[1900px]:mb-[17px] min-[1900px]:text-[18px]">
+      <legend className="mb-3 font-heading text-[13px] font-bold text-arena-strong xl:text-[15px] min-[1900px]:mb-[17px] min-[1900px]:text-[18px]">
         {title}
       </legend>
       <div className="flex flex-wrap gap-3 xl:gap-4 min-[1900px]:gap-[20px]">
@@ -174,14 +174,14 @@ export function TournamentFilterPanel({
       </div>
       <div className="mt-7 flex gap-4 min-[1900px]:mt-[41px] min-[1900px]:gap-[27px]">
         <button
-          className="h-[48px] flex-1 rounded-[4px] border border-arena-outline bg-white/10 font-display text-[13px] text-arena-strong transition-colors hover:bg-white/15 min-[1900px]:h-[53px] min-[1900px]:text-[18px]"
+          className="h-[48px] flex-1 rounded-[4px] border border-arena-outline bg-white/10 font-heading text-[13px] text-arena-strong transition-colors hover:bg-white/15 min-[1900px]:h-[53px] min-[1900px]:text-[18px]"
           onClick={onReset}
           type="button"
         >
           RESET
         </button>
         <button
-          className="h-[48px] flex-[1.5] rounded-[4px] border border-crimson bg-[#a6080c] font-display text-[13px] text-arena-strong transition-colors hover:bg-crimson min-[1900px]:h-[53px] min-[1900px]:text-[18px]"
+          className="h-[48px] flex-[1.5] rounded-[4px] border border-crimson bg-crimson/65 font-heading text-[13px] text-arena-strong transition-colors hover:bg-crimson min-[1900px]:h-[53px] min-[1900px]:text-[18px]"
           onClick={onApply}
           type="button"
         >

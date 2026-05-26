@@ -31,7 +31,7 @@ export function NotFoundPage() {
             </p>
             <div className="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row xl:mt-10 min-[1900px]:mt-[52px] min-[1900px]:gap-[18px]">
               <Link
-                className="flex h-[44px] min-w-[190px] items-center justify-center rounded-[3px] border border-crimson bg-crimson/80 px-7 text-[11px] font-semibold text-white transition-colors hover:bg-crimson xl:h-[52px] xl:min-w-[225px] xl:text-[13px] min-[1900px]:h-[66px] min-[1900px]:min-w-[288px] min-[1900px]:text-[17px]"
+                className="flex h-[44px] min-w-[190px] items-center justify-center rounded-[3px] border border-crimson bg-crimson/80 px-7 text-[11px] font-semibold text-arena-strong transition-colors hover:bg-crimson xl:h-[52px] xl:min-w-[225px] xl:text-[13px] min-[1900px]:h-[66px] min-[1900px]:min-w-[288px] min-[1900px]:text-[17px]"
                 to="/"
               >
                 RETURN HOME

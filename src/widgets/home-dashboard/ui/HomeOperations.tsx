@@ -95,7 +95,7 @@ function GuestOperations() {
         </p>
         <div className="relative mt-6 flex gap-3">
           <Link
-            className="flex h-[39px] items-center justify-center rounded-[3px] border border-crimson bg-crimson/15 px-6 text-[10px] font-semibold text-crimson transition-colors hover:bg-crimson hover:text-white min-[1900px]:h-[50px] min-[1900px]:text-[14px]"
+            className="flex h-[39px] items-center justify-center rounded-[3px] border border-crimson bg-crimson/15 px-6 text-[10px] font-semibold text-crimson transition-colors hover:bg-crimson hover:text-arena-strong min-[1900px]:h-[50px] min-[1900px]:text-[14px]"
             to="/login"
           >
             LOGIN

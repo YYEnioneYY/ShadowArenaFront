@@ -88,13 +88,13 @@ export function GameSidebar() {
         </button>
         {isMoreOpen && (
           <div
-            className="absolute left-[calc(100%+8px)] top-0 z-50 w-[188px] rounded-[5px] border border-arena-outline bg-[#050609] p-2 shadow-[0_16px_36px_rgb(0_0_0/0.72)]"
+            className="absolute bottom-0 left-[calc(100%+8px)] z-50 flex max-h-[min(360px,calc(100vh-24px))] w-[188px] flex-col rounded-[5px] border border-arena-outline bg-[#050609] p-2 shadow-[0_16px_36px_rgb(0_0_0/0.72)] xl:w-[216px] min-[1900px]:w-[270px]"
             role="menu"
           >
             <p className="mb-2 px-2 text-[9px] font-semibold text-arena-muted">
               MORE GAMES
             </p>
-            <div className="space-y-1">
+            <div className="sidebar-games-scroll min-h-0 space-y-1 overflow-y-auto">
               {moreGames.map((game) => (
                 <button
                   className={cn(
