@@ -5,10 +5,12 @@ import {
   moreGames,
   type Game,
 } from '../../../entities/game/model/mockGames'
+import { GameIcon } from '../../../entities/game/ui/GameIcon'
 import { useAuth } from '../../../features/auth/model/useAuth'
 import { useSelectedGame } from '../../../features/game-selection/model/useSelectedGame'
 import { cn } from '../../../shared/lib/cn'
 import { ArenaIcon } from '../../../shared/ui/ArenaIcon'
+import { ShadowArenaLogo } from '../../../shared/ui/ShadowArenaLogo'
 
 interface GameButtonProps {
   game: Game
@@ -26,14 +28,15 @@ function GameButton({ game, selected, onSelect }: GameButtonProps) {
       onClick={() => onSelect(game)}
       type="button"
     >
-      <span
+      <GameIcon
         className={cn(
-          'text-[29px] font-bold italic leading-none xl:text-[33px] 2xl:text-[38px] min-[1900px]:text-[46px]',
-          game.title === 'COUNTER-STRIKE 2' && 'text-[22px] xl:text-[26px] 2xl:text-[29px] min-[1900px]:text-[35px]',
+          'mb-1 h-[28px] w-[42px] text-[#B3B3B3]/70 transition-colors xl:h-[31px] xl:w-[48px] 2xl:h-[36px] 2xl:w-[54px] min-[1900px]:h-[43px] min-[1900px]:w-[64px]',
+          game.id === 'counter-strike-2' &&
+            'w-[70px] xl:w-[78px] 2xl:w-[88px] min-[1900px]:w-[106px]',
+          selected && 'text-crimson',
         )}
-      >
-        {game.mark}
-      </span>
+        gameId={game.id}
+      />
       <span className="mt-1 text-[7px] font-medium xl:text-[8px] 2xl:text-[9px] min-[1900px]:text-[11px]">{game.title}</span>
     </button>
   )
@@ -54,11 +57,7 @@ export function GameSidebar() {
 
   return (
     <aside className="fixed inset-y-0 left-0 z-40 hidden w-[120px] flex-col border-r border-arena-line bg-[#040506] px-[3px] pb-4 pt-4 lg:flex xl:w-[144px] xl:px-[5px] 2xl:w-[170px] 2xl:px-[7px] min-[1900px]:w-[242px] min-[1900px]:px-[11px] min-[1900px]:pt-[30px]">
-      <h1 className="mb-10 text-center font-display text-[18px] leading-[1.05] text-arena-strong xl:text-[21px] 2xl:text-[25px] min-[1900px]:mb-[88px] min-[1900px]:text-[34px]">
-        SHADOW
-        <br />
-        ARENA
-      </h1>
+      <ShadowArenaLogo className="mx-auto mb-10 h-auto w-[82px] xl:w-[96px] 2xl:w-[116px] min-[1900px]:mb-[88px] min-[1900px]:w-[178px]" />
       <p className="mb-1 pl-2 text-[9px] text-arena-copy xl:text-[11px] 2xl:text-[13px] min-[1900px]:mb-2 min-[1900px]:pl-[18px] min-[1900px]:text-[18px]">GAMES</p>
       <div className="space-y-[3px]">
         {mainGames.map((game) => (
@@ -106,9 +105,14 @@ export function GameSidebar() {
                   role="menuitem"
                   type="button"
                 >
-                  <span className="mr-3 w-7 text-center text-[18px] font-bold italic">
-                    {game.mark}
-                  </span>
+                  <GameIcon
+                    className={cn(
+                      'mr-3 h-[21px] w-[28px] shrink-0 text-[#B3B3B3]/70 transition-colors',
+                      game.id === 'counter-strike-2' && 'w-[42px]',
+                      selectedGame.id === game.id && 'text-crimson',
+                    )}
+                    gameId={game.id}
+                  />
                   <span className="text-[9px] font-medium">{game.title}</span>
                 </button>
               ))}

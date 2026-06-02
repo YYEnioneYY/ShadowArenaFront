@@ -1,12 +1,14 @@
 import { useEffect, useState } from 'react'
 import { Link, NavLink, useLocation } from 'react-router-dom'
 import { mockGames } from '../../../entities/game/model/mockGames'
+import { GameIcon } from '../../../entities/game/ui/GameIcon'
 import { useAuth } from '../../../features/auth/model/useAuth'
 import { useActiveGameData } from '../../../features/game-selection/model/useActiveGameData'
 import { useSelectedGame } from '../../../features/game-selection/model/useSelectedGame'
 import { useShop } from '../../../features/shop/model/useShop'
 import { cn } from '../../../shared/lib/cn'
 import { ArenaIcon } from '../../../shared/ui/ArenaIcon'
+import { ShadowArenaLogo } from '../../../shared/ui/ShadowArenaLogo'
 import { accountMenuItems, appHeaderLinks } from '../model/navigation'
 
 export function MobileArenaMenu() {
@@ -70,11 +72,7 @@ export function MobileArenaMenu() {
           />
           <aside className="mobile-menu-drawer fixed inset-y-0 right-0 z-[60] flex w-[min(88vw,370px)] flex-col border-l border-arena-outline bg-[#0B0B0F] shadow-[-18px_0_44px_rgb(0_0_0/0.8)]">
             <div className="flex h-[70px] shrink-0 items-center justify-between border-b border-arena-line px-5">
-              <p className="font-display text-[17px] leading-[0.95] text-arena-strong">
-                SHADOW
-                <br />
-                ARENA
-              </p>
+              <ShadowArenaLogo className="h-auto w-[92px]" />
               <button
                 aria-label="Close navigation menu"
                 className="relative h-[42px] w-[42px] rounded-[4px] border border-arena-outline text-arena-copy"
@@ -168,9 +166,14 @@ export function MobileArenaMenu() {
                     onClick={() => chooseGame(game.id)}
                     type="button"
                   >
-                    <span className="mr-3 w-[30px] text-center text-[19px] font-bold italic">
-                      {game.mark}
-                    </span>
+                    <GameIcon
+                      className={cn(
+                        'mr-3 h-[24px] w-[30px] shrink-0 text-[#B3B3B3]/70 transition-colors',
+                        game.id === 'counter-strike-2' && 'w-[46px]',
+                        selectedGame.id === game.id && 'text-crimson',
+                      )}
+                      gameId={game.id}
+                    />
                     <span className="text-[8px] font-semibold">
                       {game.title}
                     </span>

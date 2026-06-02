@@ -5,6 +5,7 @@ import { useActiveGameData } from '../../../features/game-selection/model/useAct
 import { useShop } from '../../../features/shop/model/useShop'
 import { cn } from '../../../shared/lib/cn'
 import { ArenaIcon } from '../../../shared/ui/ArenaIcon'
+import { ShadowArenaLogo } from '../../../shared/ui/ShadowArenaLogo'
 import { accountMenuItems, appHeaderLinks } from '../model/navigation'
 import { MobileArenaMenu } from './MobileArenaMenu'
 
@@ -28,11 +29,7 @@ export function AppHeader() {
 
   return (
     <header className="sticky top-0 z-30 flex h-[70px] items-center bg-[#0B0B0F] px-5 md:static md:z-auto md:px-7 xl:h-[86px] xl:px-8 2xl:h-[104px] 2xl:px-9 min-[1900px]:h-[144px] min-[1900px]:px-[40px]">
-      <p className="mr-8 font-display text-[15px] leading-[0.95] text-arena-strong lg:hidden">
-        SHADOW
-        <br />
-        ARENA
-      </p>
+      <ShadowArenaLogo className="mr-8 block h-auto w-[84px] lg:hidden" />
       <nav className="hidden h-full items-center gap-9 md:flex xl:gap-12 2xl:gap-[58px] min-[1900px]:gap-[84px]">
         {appHeaderLinks.map((link) => (
           <NavLink

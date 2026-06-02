@@ -1,9 +1,22 @@
 import { getMockGameData } from '../../../entities/game/model/mockGameData'
 import { mockGames, type Game } from '../../../entities/game/model/mockGames'
+import { GameIcon } from '../../../entities/game/ui/GameIcon'
 import { TournamentArtwork } from '../../../entities/tournament/ui/TournamentArtwork'
 import { useSelectedGame } from '../../../features/game-selection/model/useSelectedGame'
 import { cn } from '../../../shared/lib/cn'
 import { Panel } from '../../../shared/ui/Panel'
+
+const wideGameIconIds = new Set<Game['id']>([
+  'counter-strike-2',
+  'marvel-rivals',
+  'rocket-league',
+])
+
+const narrowGameIconIds = new Set<Game['id']>([
+  'fortnite',
+  'pubg',
+  'rainbow-six-siege',
+])
 
 export function HomeGamesRow() {
   const { selectedGame, selectGame } = useSelectedGame()
@@ -59,9 +72,17 @@ function HomeGameCard({
           />
         </div>
         <div className="flex h-[96px] flex-col items-center justify-center bg-black xl:h-[112px] min-[1900px]:h-[144px]">
-          <span className="text-[42px] font-bold italic leading-none text-arena-copy xl:text-[54px] min-[1900px]:text-[72px]">
-            {game.mark}
-          </span>
+          <GameIcon
+            className={cn(
+              'h-[48px] w-[70px] text-[#B3B3B3]/70 transition-colors xl:h-[58px] xl:w-[86px] min-[1900px]:h-[76px] min-[1900px]:w-[114px]',
+              wideGameIconIds.has(game.id) &&
+                'w-[98px] xl:w-[122px] min-[1900px]:w-[162px]',
+              narrowGameIconIds.has(game.id) &&
+                'w-[46px] xl:w-[54px] min-[1900px]:w-[70px]',
+              selected && 'text-crimson',
+            )}
+            gameId={game.id}
+          />
           <span
             className={cn(
               'mt-3 text-[7px] font-semibold text-crimson min-[1900px]:text-[11px]',
