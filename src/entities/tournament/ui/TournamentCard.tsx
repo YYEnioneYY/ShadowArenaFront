@@ -34,7 +34,11 @@ export function TournamentCard({ tournament }: TournamentCardProps) {
                 {detail.label}
               </p>
               <p className="mt-1 text-[8px] font-medium text-arena-copy xl:text-[10px] 2xl:text-[11px] min-[1900px]:text-[14px]">
-                {detail.value}
+                {detail.label === 'RANK' ? (
+                  <span className="font-heading">{detail.value}</span>
+                ) : (
+                  detail.value
+                )}
               </p>
             </div>
           ))}

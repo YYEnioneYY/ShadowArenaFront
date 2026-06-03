@@ -76,17 +76,17 @@ function RankAndProgression() {
       <div className="mt-7 grid gap-8 md:grid-cols-[minmax(280px,0.82fr)_minmax(310px,1fr)] min-[1900px]:mt-[38px] min-[1900px]:gap-[52px]">
         <div className="flex items-center gap-7 min-[1900px]:gap-[36px]">
           <RankEmblem
-            className="h-[112px] w-[100px] shrink-0 xl:h-[140px] xl:w-[125px] min-[1900px]:h-[180px] min-[1900px]:w-[157px]"
+            className="h-[112px] w-[166px] shrink-0 xl:h-[140px] xl:w-[207px] min-[1900px]:h-[180px] min-[1900px]:w-[266px]"
             tier={currentRank.tier}
           />
           <div className="min-w-0 flex-1">
-            <p className="text-[10px] text-arena-muted min-[1900px]:text-[14px]">
+            <p className="text-[12px] text-arena-muted min-[1900px]:text-[16px]">
               CURRENT RANK
             </p>
-            <p className="mt-1 font-display text-[22px] font-bold text-crimson xl:text-[28px] min-[1900px]:text-[36px]">
+            <p className="mt-1 font-heading text-[28px] font-bold text-crimson xl:text-[34px] min-[1900px]:text-[43px]">
               {currentRank.rankName}
             </p>
-            <p className="mt-6 text-[10px] text-arena-muted min-[1900px]:text-[14px]">
+            <p className="mt-6 text-[12px] text-arena-muted min-[1900px]:text-[16px]">
               {currentRank.experience} RP
             </p>
             <div className="mt-2 h-[4px] overflow-hidden bg-arena-outline min-[1900px]:h-[6px]">

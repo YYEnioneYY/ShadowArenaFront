@@ -106,7 +106,7 @@ function ProfileFriendsPanel() {
                 {friend.name}
               </p>
               <p className="truncate text-[8px] text-arena-muted min-[1900px]:text-[11px]">
-                {friend.game} / {friend.rank}
+                {friend.game} / <span className="font-heading">{friend.rank}</span>
               </p>
             </div>
           </div>

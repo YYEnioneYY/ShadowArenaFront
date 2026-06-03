@@ -93,7 +93,7 @@ export function MobileArenaMenu() {
                         {profile.name}
                       </span>
                       <span className="block text-[9px] font-semibold text-crimson">
-                        LEVEL {profile.level} / {profile.rank}
+                        LEVEL {profile.level} / <span className="font-heading">{profile.rank}</span>
                       </span>
                     </span>
                   </div>

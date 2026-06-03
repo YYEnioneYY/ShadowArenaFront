@@ -31,7 +31,7 @@ export function ClanCard({
             {clan.name}
           </h3>
           <p className="mt-1 text-[9px] text-arena-muted xl:text-[11px] min-[1900px]:text-[15px]">
-            {clan.tier} - {clan.region} - {clan.game}
+            <span className="font-heading">{clan.tier}</span> - {clan.region} - {clan.game}
           </p>
         </div>
         <div className="grid min-w-[295px] flex-[1.3] grid-cols-3 gap-x-4 gap-y-2 min-[1900px]:min-w-[418px] min-[1900px]:gap-x-[25px]">
@@ -41,7 +41,11 @@ export function ClanCard({
                 {detail.label}
               </p>
               <p className="mt-0.5 truncate text-[8px] text-arena-copy min-[1900px]:text-[12px]">
-                {detail.value}
+                {detail.label === 'RANK' ? (
+                  <span className="font-heading">{detail.value}</span>
+                ) : (
+                  detail.value
+                )}
               </p>
             </div>
           ))}

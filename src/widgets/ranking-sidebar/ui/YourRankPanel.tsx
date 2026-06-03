@@ -53,18 +53,18 @@ export function YourRankPanel() {
       </p>
       <div className="mt-4 flex items-center rounded-[5px] border border-arena-outline px-3 py-3 min-[1900px]:mt-[23px] min-[1900px]:px-[21px] min-[1900px]:py-[20px]">
         <RankEmblem
-          className="h-[55px] w-[47px] min-[1900px]:h-[83px] min-[1900px]:w-[74px]"
+          className="h-[55px] w-[82px] min-[1900px]:h-[83px] min-[1900px]:w-[123px]"
           tier={currentRank.tier}
         />
         <div className="ml-3 min-w-0 flex-1 min-[1900px]:ml-[18px]">
-          <p className="font-heading text-[16px] font-bold text-crimson min-[1900px]:text-[24px]">
+          <p className="font-heading text-[19px] font-bold text-crimson min-[1900px]:text-[28px]">
             {currentRank.rankName}
           </p>
           <div className="mt-2 flex items-end justify-between">
-            <p className="text-[8px] text-crimson min-[1900px]:text-[11px]">
+            <p className="text-[9px] text-crimson min-[1900px]:text-[13px]">
               LEVEL {currentRank.level}
             </p>
-            <p className="text-[8px] text-arena-muted min-[1900px]:text-[11px]">
+            <p className="text-[9px] text-arena-muted min-[1900px]:text-[13px]">
               {currentRank.experience}/{currentRank.experienceTarget}XP
             </p>
           </div>

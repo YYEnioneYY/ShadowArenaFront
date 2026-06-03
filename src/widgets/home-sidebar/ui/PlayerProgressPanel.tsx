@@ -57,7 +57,7 @@ export function PlayerProgressPanel() {
             <p className="text-[8px] text-arena-muted min-[1900px]:text-[12px]">
               CURRENT RANK
             </p>
-            <p className="mt-1 text-[17px] font-semibold text-arena-strong xl:text-[20px] min-[1900px]:text-[28px]">
+            <p className="mt-1 font-heading text-[17px] font-semibold text-arena-strong xl:text-[20px] min-[1900px]:text-[28px]">
               {profile.rank}
             </p>
           </div>
@@ -73,7 +73,7 @@ export function PlayerProgressPanel() {
         </div>
         <div className="mt-2 flex justify-between text-[8px] text-arena-muted min-[1900px]:text-[11px]">
           <span>{profile.rankProgress}% COMPLETE</span>
-          <span>{profile.nextRank}</span>
+          <span className="font-heading">{profile.nextRank}</span>
         </div>
       </div>
       <button

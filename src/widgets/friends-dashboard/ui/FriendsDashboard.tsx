@@ -180,7 +180,7 @@ function FriendRow({ friend, onNotice }: FriendRowProps) {
           {friend.name}
         </p>
         <p className="truncate text-[9px] text-arena-muted min-[1900px]:text-[12px]">
-          {friend.game} / {friend.rank}
+          {friend.game} / <span className="font-heading">{friend.rank}</span>
         </p>
       </div>
       <p className="hidden text-[9px] text-arena-muted sm:block min-[1900px]:text-[13px]">

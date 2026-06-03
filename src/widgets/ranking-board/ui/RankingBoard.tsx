@@ -97,14 +97,17 @@ interface RankingRowProps {
 }
 
 function RankingRow({ entry, isTeam }: RankingRowProps) {
+  const rankLabel = entry.rankName ?? entry.tier
+  const rankDetail = isTeam ? `${entry.region} SQUAD` : entry.tag
+
   return (
-    <Panel className="grid h-[63px] grid-cols-[47px_57px_82px_minmax(0,1fr)_135px] items-center overflow-hidden px-4 xl:h-[76px] xl:grid-cols-[56px_72px_100px_minmax(0,1fr)_180px] min-[1900px]:h-[100px] min-[1900px]:grid-cols-[72px_116px_157px_minmax(0,1fr)_307px] min-[1900px]:px-[30px]">
+    <Panel className="grid h-[63px] grid-cols-[47px_82px_82px_minmax(0,1fr)_135px] items-center overflow-hidden px-4 xl:h-[76px] xl:grid-cols-[56px_100px_100px_minmax(0,1fr)_180px] min-[1900px]:h-[100px] min-[1900px]:grid-cols-[72px_145px_157px_minmax(0,1fr)_307px] min-[1900px]:px-[30px]">
       <span className="text-[21px] font-medium text-crimson xl:text-[25px] min-[1900px]:text-[35px]">
         {entry.position}
       </span>
       <span className="flex h-[40px] items-center border-l border-arena-outline pl-4 xl:h-[51px] min-[1900px]:h-[66px] min-[1900px]:pl-[32px]">
         <RankEmblem
-          className="h-[35px] w-[30px] xl:h-[42px] xl:w-[38px] min-[1900px]:h-[58px] min-[1900px]:w-[51px]"
+          className="h-[40px] w-[59px] xl:h-[51px] xl:w-[75px] min-[1900px]:h-[66px] min-[1900px]:w-[98px]"
           tier={entry.tier}
         />
       </span>
@@ -115,10 +118,8 @@ function RankingRow({ entry, isTeam }: RankingRowProps) {
         <span className="block truncate text-[10px] font-semibold text-crimson xl:text-[12px] min-[1900px]:text-[16px]">
           {entry.nickname}
         </span>
-        <span className="block text-[7px] text-arena-muted min-[1900px]:text-[10px]">
-          {isTeam
-            ? `${entry.rankName ?? entry.tier} / ${entry.region} SQUAD`
-            : `${entry.rankName ?? entry.tier} / ${entry.tag}`}
+        <span className="block text-[8px] text-arena-muted xl:text-[9px] min-[1900px]:text-[12px]">
+          <span className="font-heading font-semibold text-arena-copy">{rankLabel}</span> / {rankDetail}
         </span>
       </span>
       <span className="ranking-row-art -mr-4 h-full min-[1900px]:-mr-[30px]" />

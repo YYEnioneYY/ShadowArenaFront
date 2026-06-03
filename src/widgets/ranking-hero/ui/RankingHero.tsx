@@ -21,17 +21,17 @@ export function RankingHero() {
       <div className="mt-7 grid gap-2 sm:grid-cols-5 xl:mt-9 xl:gap-3 min-[1900px]:mt-[48px] min-[1900px]:gap-[9px]">
         {ranking.divisions.map((division) => (
           <Panel
-            className="flex min-h-[145px] flex-col items-center px-2 pb-3 pt-2 text-center xl:min-h-[177px] min-[1900px]:min-h-[230px] min-[1900px]:px-[16px] min-[1900px]:pb-[17px] min-[1900px]:pt-[11px]"
+            className="flex min-h-[162px] flex-col items-center px-3 pb-4 pt-2 text-center xl:min-h-[194px] min-[1900px]:min-h-[252px] min-[1900px]:px-[16px] min-[1900px]:pb-[20px] min-[1900px]:pt-[11px]"
             key={division.name}
           >
             <RankEmblem
-              className="h-[53px] w-[48px] xl:h-[65px] xl:w-[57px] min-[1900px]:h-[96px] min-[1900px]:w-[82px]"
+              className="h-[53px] w-[78px] xl:h-[65px] xl:w-[96px] min-[1900px]:h-[96px] min-[1900px]:w-[142px]"
               tier={division.tier}
             />
-            <h2 className="mt-2 font-display text-[9px] font-bold text-crimson xl:text-[11px] min-[1900px]:text-[15px]">
+            <h2 className="mt-3 font-heading text-[12px] font-bold text-crimson xl:text-[14px] min-[1900px]:text-[19px]">
               {division.name}
             </h2>
-            <p className="mt-2 text-[6px] leading-[1.4] text-arena-muted xl:text-[7px] min-[1900px]:text-[10px]">
+            <p className="mt-2 text-[8px] leading-[1.45] text-arena-muted xl:text-[10px] min-[1900px]:text-[13px]">
               {division.description}
             </p>
           </Panel>

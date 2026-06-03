@@ -88,7 +88,7 @@ export function AppHeader() {
                     {user.email}
                   </p>
                   <p className="mt-3 text-[9px] text-crimson min-[1900px]:text-[12px]">
-                    {visibleProfile.rank} / LEVEL {visibleProfile.level}
+                    <span className="font-heading">{visibleProfile.rank}</span> / LEVEL {visibleProfile.level}
                   </p>
                   {!isAccountRoute && (
                     <p className="mt-2 text-[8px] font-semibold tracking-[0.16em] text-arena-muted min-[1900px]:text-[11px]">
