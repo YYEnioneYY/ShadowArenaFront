@@ -72,7 +72,7 @@ export function MobileArenaMenu() {
           />
           <aside className="mobile-menu-drawer fixed inset-y-0 right-0 z-[60] flex w-[min(88vw,370px)] flex-col border-l border-arena-outline bg-[#0B0B0F] shadow-[-18px_0_44px_rgb(0_0_0/0.8)]">
             <div className="flex h-[70px] shrink-0 items-center justify-between border-b border-arena-line px-5">
-              <ShadowArenaLogo className="h-auto w-[46px]" />
+              <ShadowArenaLogo className="h-auto w-[92px]" />
               <button
                 aria-label="Close navigation menu"
                 className="relative h-[42px] w-[42px] rounded-[4px] border border-arena-outline text-arena-copy"

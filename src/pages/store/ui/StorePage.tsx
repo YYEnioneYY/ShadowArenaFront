@@ -7,7 +7,6 @@ import {
 import { ArenaPageLayout } from '../../../widgets/arena-layout/ui/ArenaPageLayout'
 import { StoreCatalog } from '../../../widgets/store-catalog/ui/StoreCatalog'
 import { StoreHero } from '../../../widgets/store-hero/ui/StoreHero'
-import { StoreSidebar } from '../../../widgets/store-sidebar/ui/StoreSidebar'
 
 export function StorePage() {
   const [selectedItem, setSelectedItem] = useState<StoreItem>(featuredStoreItem)
@@ -19,13 +18,12 @@ export function StorePage() {
   }
 
   return (
-    <ArenaPageLayout rightRail={<StoreSidebar item={selectedItem} />}>
-      <div className="px-3 pt-3 md:px-5 md:pt-5 lg:px-0 lg:pt-0">
+    <ArenaPageLayout mainClassName="lg:col-span-2">
+      <div className="mx-3 pt-6 md:mx-5 md:pt-7 lg:mx-[35px] lg:pt-7 2xl:mx-[50px] 2xl:pt-8 min-[1900px]:mx-[72px] min-[1900px]:pt-[46px]">
         <StoreHero featuredItem={featuredStoreItem} onPreview={selectItem} />
       </div>
       <div className="mx-3 pb-5 md:mx-5 lg:mx-[35px] 2xl:mx-[50px] min-[1900px]:mx-[72px]">
         <StoreCatalog onSelect={selectItem} selectedId={selectedItem.id} />
-        <StoreSidebar compact item={selectedItem} />
       </div>
     </ArenaPageLayout>
   )

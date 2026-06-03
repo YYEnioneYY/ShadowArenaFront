@@ -9,7 +9,7 @@ interface AuthBrandPanelProps {
 export function AuthBrandPanel({ mode }: AuthBrandPanelProps) {
   return (
     <aside className="relative hidden flex-col p-8 md:flex lg:p-[34px] min-[1900px]:p-[44px]">
-      <ShadowArenaLogo className="auth-logo h-auto w-[116px] lg:w-[150px] min-[1900px]:w-[188px]" />
+      <ShadowArenaLogo className="auth-logo h-auto w-[210px] lg:w-[278px] min-[1900px]:w-[342px]" />
       <div className="mt-auto pb-[118px] min-[1900px]:pb-[126px]">
         <h2 className="font-display text-[27px] leading-[1.7] text-arena-strong min-[1900px]:text-[31px]">
           {mode === 'login' ? (

@@ -1,30 +1,16 @@
-import type { SVGProps } from 'react'
+import logoUrl from '../assets/shadow-arena-logo.svg'
 
-import { cn } from '../lib/cn'
+interface ShadowArenaLogoProps {
+  className?: string
+}
 
-export function ShadowArenaLogo({
-  className,
-  ...props
-}: SVGProps<SVGSVGElement>) {
+export function ShadowArenaLogo({ className }: ShadowArenaLogoProps) {
   return (
-    <svg
-      aria-label="Shadow Arena"
-      className={cn('text-[#E5E7EB]', className)}
-      fill="none"
-      focusable="false"
-      role="img"
-      viewBox="0 0 398 395"
-      xmlns="http://www.w3.org/2000/svg"
-      {...props}
-    >
-      <path
-        d="M315.878 227.168L393.708 246.184C393.708 246.184 314.403 221.123 286.405 167.471C258.406 113.82 199 0 199 0C199 0 129.935 132.582 111.595 167.471C93.256 202.361 4.29165 246.184 4.29165 246.184L82.1218 227.168L0 394.107C0 394.107 35.3971 358.759 77.6972 341.785C119.997 324.8 136.934 327.738 136.934 327.738C136.934 327.738 94.4165 313.219 115.524 266.566C136.632 219.914 199 100.57 199 100.57C199 100.57 261.368 219.914 282.476 266.566C303.583 313.219 261.066 327.738 261.066 327.738C261.066 327.738 278.003 324.812 320.303 341.785C362.603 358.771 398 394.107 398 394.107L315.878 227.168Z"
-        fill="currentColor"
-      />
-      <path
-        d="M188.906 211.029L198.988 183.768L209.071 211.029C211.5 217.593 216.675 222.755 223.227 225.185L250.488 235.267L223.227 245.35C216.663 247.78 211.5 252.954 209.071 259.506L198.988 286.767L188.906 259.506C186.476 252.942 181.302 247.78 174.749 245.35L147.488 235.267L174.749 225.185C181.314 222.755 186.476 217.581 188.906 211.029Z"
-        fill="currentColor"
-      />
-    </svg>
+    <img
+      alt="Shadow Arena"
+      className={className}
+      draggable={false}
+      src={logoUrl}
+    />
   )
 }

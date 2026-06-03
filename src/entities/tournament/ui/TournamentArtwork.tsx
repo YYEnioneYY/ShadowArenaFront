@@ -4,6 +4,7 @@ import type { ArtworkVariant } from '../model/types'
 interface TournamentArtworkProps {
   format: string
   game?: string
+  imageUrl?: string
   variant: ArtworkVariant
   featured?: boolean
 }
@@ -11,9 +12,30 @@ interface TournamentArtworkProps {
 export function TournamentArtwork({
   format,
   game = 'SHADOW ARENA',
+  imageUrl,
   variant,
   featured = false,
 }: TournamentArtworkProps) {
+  if (imageUrl) {
+    return (
+      <div
+        className={cn(
+          'tournament-art relative isolate h-full min-h-[108px] overflow-hidden bg-black xl:min-h-[143px] 2xl:min-h-[160px] min-[1900px]:min-h-[196px]',
+          featured && 'min-h-[112px]',
+        )}
+      >
+        <img
+          alt=""
+          aria-hidden="true"
+          className="absolute inset-0 h-full w-full object-cover transition-transform duration-300"
+          draggable={false}
+          src={imageUrl}
+        />
+        <div className="absolute inset-0 bg-[linear-gradient(180deg,rgb(0_0_0/0.02),rgb(0_0_0/0.22))]" />
+      </div>
+    )
+  }
+
   return (
     <div
       className={cn(
