@@ -28,8 +28,8 @@ export function AppHeader() {
   const visibleProfile = isAccountRoute ? user?.profile : activeGameData.profile
 
   return (
-    <header className="sticky top-0 z-30 flex h-[70px] items-center bg-[#0B0B0F] px-5 md:static md:z-auto md:px-7 xl:h-[86px] xl:px-8 2xl:h-[104px] 2xl:px-9 min-[1900px]:h-[144px] min-[1900px]:px-[40px]">
-      <ShadowArenaLogo className="mr-8 block h-auto w-[84px] lg:hidden" />
+    <header className="fixed left-0 right-0 top-0 z-50 flex h-[70px] items-center bg-[#0B0B0F] px-5 md:px-7 lg:left-[120px] xl:left-[144px] xl:h-[86px] xl:px-8 2xl:left-[170px] 2xl:h-[104px] 2xl:px-9 min-[1900px]:left-[242px] min-[1900px]:h-[144px] min-[1900px]:px-[40px]">
+      <ShadowArenaLogo className="mr-8 block h-auto w-[44px] lg:hidden" />
       <nav className="hidden h-full items-center gap-9 md:flex xl:gap-12 2xl:gap-[58px] min-[1900px]:gap-[84px]">
         {appHeaderLinks.map((link) => (
           <NavLink

@@ -57,7 +57,7 @@ export function GameSidebar() {
 
   return (
     <aside className="fixed inset-y-0 left-0 z-40 hidden w-[120px] flex-col border-r border-arena-line bg-[#040506] px-[3px] pb-4 pt-4 lg:flex xl:w-[144px] xl:px-[5px] 2xl:w-[170px] 2xl:px-[7px] min-[1900px]:w-[242px] min-[1900px]:px-[11px] min-[1900px]:pt-[30px]">
-      <ShadowArenaLogo className="mx-auto mb-10 h-auto w-[82px] xl:w-[96px] 2xl:w-[116px] min-[1900px]:mb-[88px] min-[1900px]:w-[178px]" />
+      <ShadowArenaLogo className="mx-auto mb-10 h-auto w-[58px] xl:w-[66px] 2xl:w-[76px] min-[1900px]:mb-[88px] min-[1900px]:w-[108px]" />
       <p className="mb-1 pl-2 text-[9px] text-arena-copy xl:text-[11px] 2xl:text-[13px] min-[1900px]:mb-2 min-[1900px]:pl-[18px] min-[1900px]:text-[18px]">GAMES</p>
       <div className="space-y-[3px]">
         {mainGames.map((game) => (

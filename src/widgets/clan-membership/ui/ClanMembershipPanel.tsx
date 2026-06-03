@@ -33,7 +33,7 @@ export function ClanMembershipPanel({ membership }: ClanMembershipPanelProps) {
         <div className="relative flex min-h-[292px] items-end px-4 pb-5 pt-[118px] sm:px-6 xl:min-h-[340px] xl:px-8 xl:pb-7 min-[1900px]:min-h-[450px] min-[1900px]:px-[43px] min-[1900px]:pb-[39px]">
           <div className="clan-membership-info relative w-full rounded-[5px] border border-white/5 bg-[#050609]/80 px-4 pb-4 pt-[86px] shadow-[0_18px_36px_rgb(0_0_0/0.55)] backdrop-blur-[3px] sm:ml-[96px] sm:px-6 sm:pb-5 sm:pl-11 sm:pt-4 xl:ml-[116px] xl:px-7 xl:pl-12 min-[1900px]:ml-[158px] min-[1900px]:px-[37px] min-[1900px]:pb-[28px] min-[1900px]:pl-[58px] min-[1900px]:pt-[25px]">
             <span
-              className="clan-membership-avatar absolute left-1/2 top-0 h-[124px] w-[124px] -translate-x-1/2 -translate-y-[82px] rounded-full border border-crimson bg-cover bg-center shadow-[0_0_0_1px_rgb(0_0_0/0.8),0_18px_34px_rgb(0_0_0/0.65)] sm:left-0 sm:h-[146px] sm:w-[146px] sm:-translate-x-[112px] sm:-translate-y-[48px] xl:h-[168px] xl:w-[168px] xl:-translate-x-[132px] xl:-translate-y-[56px] min-[1900px]:h-[228px] min-[1900px]:w-[228px] min-[1900px]:-translate-x-[180px] min-[1900px]:-translate-y-[76px]"
+              className="clan-membership-avatar absolute left-1/2 top-0 h-[124px] w-[124px] -translate-x-1/2 -translate-y-[92px] rounded-full border border-crimson bg-cover bg-center shadow-[0_0_0_1px_rgb(0_0_0/0.8),0_18px_34px_rgb(0_0_0/0.65)] sm:left-0 sm:h-[146px] sm:w-[146px] sm:-translate-x-[112px] sm:-translate-y-[60px] xl:h-[168px] xl:w-[168px] xl:-translate-x-[132px] xl:-translate-y-[70px] min-[1900px]:h-[228px] min-[1900px]:w-[228px] min-[1900px]:-translate-x-[180px] min-[1900px]:-translate-y-[96px]"
               style={{ backgroundImage: `url(${clanBannerUrl})` }}
             />
             <div className="max-w-[620px]">
@@ -59,10 +59,10 @@ export function ClanMembershipPanel({ membership }: ClanMembershipPanelProps) {
               <div className="mt-5 grid grid-cols-2 gap-x-5 gap-y-3 sm:grid-cols-4 min-[1900px]:mt-[26px] min-[1900px]:gap-x-[35px]">
                 {details.map((detail) => (
                   <div key={detail.label}>
-                    <p className="text-[8px] text-arena-dim min-[1900px]:text-[12px]">
+                    <p className="text-[9px] font-medium text-arena-dim xl:text-[10px] min-[1900px]:text-[14px]">
                       {detail.label}
                     </p>
-                    <p className="mt-1 text-[10px] text-arena-copy min-[1900px]:text-[15px]">
+                    <p className="mt-1 text-[12px] font-medium text-arena-copy xl:text-[13px] min-[1900px]:text-[18px]">
                       {detail.value}
                     </p>
                   </div>

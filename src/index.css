@@ -137,7 +137,7 @@ button {
 }
 
 .auth-logo {
-  text-shadow: 0 3px 19px rgb(0 0 0 / 0.85);
+  filter: drop-shadow(0 3px 19px rgb(0 0 0 / 0.85));
 }
 
 .auth-submit {
@@ -552,9 +552,9 @@ button {
 }
 
 .home-entry-logo {
-  text-shadow:
-    0 3px 19px rgb(0 0 0 / 0.95),
-    0 0 35px rgb(255 255 255 / 0.025);
+  filter:
+    drop-shadow(0 3px 19px rgb(0 0 0 / 0.95))
+    drop-shadow(0 0 35px rgb(255 255 255 / 0.025));
 }
 
 .home-scroll-row {
