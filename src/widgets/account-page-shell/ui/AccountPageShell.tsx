@@ -1,5 +1,6 @@
 import type { ReactNode } from 'react'
 import { Navigate, NavLink, useLocation } from 'react-router-dom'
+import { MorningstarAvatar } from '../../../entities/player/ui/MorningstarAvatar'
 import { useAuth } from '../../../features/auth/model/useAuth'
 import { useActiveGameData } from '../../../features/game-selection/model/useActiveGameData'
 import { cn } from '../../../shared/lib/cn'
@@ -51,7 +52,7 @@ export function AccountPageShell({
           <aside>
             <Panel className="overflow-hidden p-4 xl:p-5 min-[1900px]:p-[25px]">
               <div className="flex items-center gap-3 min-[1900px]:gap-[16px]">
-                <span className="profile-orb h-[52px] w-[52px] shrink-0 rounded-full border border-crimson min-[1900px]:h-[70px] min-[1900px]:w-[70px]" />
+                <MorningstarAvatar className="h-[52px] w-[52px] shrink-0 rounded-full border border-crimson min-[1900px]:h-[70px] min-[1900px]:w-[70px]" />
                 <div className="min-w-0">
                   <h2 className="truncate font-display text-[15px] text-arena-strong min-[1900px]:text-[21px]">
                     {user.profile.name}

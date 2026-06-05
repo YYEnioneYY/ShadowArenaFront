@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { Link, NavLink, useLocation } from 'react-router-dom'
+import { MorningstarAvatar } from '../../../entities/player/ui/MorningstarAvatar'
 import { useAuth } from '../../../features/auth/model/useAuth'
 import { useActiveGameData } from '../../../features/game-selection/model/useActiveGameData'
 import { useShop } from '../../../features/shop/model/useShop'
@@ -69,7 +70,7 @@ export function AppHeader() {
                 onClick={() => setIsAccountOpen((open) => !open)}
                 type="button"
               >
-                <span className="profile-orb h-[50px] w-[50px] rounded-full border border-crimson xl:h-[62px] xl:w-[62px] 2xl:h-[76px] 2xl:w-[76px] min-[1900px]:h-[118px] min-[1900px]:w-[118px]" />
+                <MorningstarAvatar className="h-[50px] w-[50px] rounded-full border border-crimson xl:h-[62px] xl:w-[62px] 2xl:h-[76px] 2xl:w-[76px] min-[1900px]:h-[118px] min-[1900px]:w-[118px]" />
                 <span className="hidden lg:block">
                   <span className="block font-display text-[14px] text-arena-copy xl:text-[16px] 2xl:text-[19px] min-[1900px]:text-[28px]">
                     {visibleProfile.name}

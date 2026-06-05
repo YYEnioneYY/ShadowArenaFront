@@ -1,5 +1,6 @@
 import type { ClanMembership } from '../../../entities/clan/model/types'
 import clanBannerUrl from '../../../assets/clans/shadow-legion-banner.png'
+import { MorningstarAvatar } from '../../../entities/player/ui/MorningstarAvatar'
 import { useActiveGameData } from '../../../features/game-selection/model/useActiveGameData'
 import { Panel } from '../../../shared/ui/Panel'
 
@@ -78,7 +79,11 @@ export function ClanMembershipPanel({ membership }: ClanMembershipPanelProps) {
             className="flex h-[68px] items-center gap-3 px-3 min-[1900px]:h-[94px] min-[1900px]:gap-[17px] min-[1900px]:px-[17px]"
             key={member.id}
           >
-            <span className="clan-member-avatar h-[48px] w-[48px] shrink-0 rounded-full border border-crimson min-[1900px]:h-[68px] min-[1900px]:w-[68px]" />
+            {member.isCurrentUser ? (
+              <MorningstarAvatar className="h-[48px] w-[48px] shrink-0 rounded-full border border-crimson min-[1900px]:h-[68px] min-[1900px]:w-[68px]" />
+            ) : (
+              <span className="clan-member-avatar h-[48px] w-[48px] shrink-0 rounded-full border border-crimson min-[1900px]:h-[68px] min-[1900px]:w-[68px]" />
+            )}
             <span className="min-w-0">
               <span className="block truncate text-[9px] font-semibold text-crimson min-[1900px]:text-[13px]">
                 {member.isCurrentUser ? profile.name : member.nickname}

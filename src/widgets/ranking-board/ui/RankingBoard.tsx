@@ -1,4 +1,16 @@
 import { useMemo, useState } from 'react'
+import rankingBanner01 from '../../../assets/ranking-banners/ranking-banner-01.webp'
+import rankingBanner02 from '../../../assets/ranking-banners/ranking-banner-02.webp'
+import rankingBanner03 from '../../../assets/ranking-banners/ranking-banner-03.webp'
+import rankingBanner04 from '../../../assets/ranking-banners/ranking-banner-04.webp'
+import rankingBanner05 from '../../../assets/ranking-banners/ranking-banner-05.webp'
+import rankingBanner06 from '../../../assets/ranking-banners/ranking-banner-06.webp'
+import rankingBanner07 from '../../../assets/ranking-banners/ranking-banner-07.webp'
+import rankingBanner08 from '../../../assets/ranking-banners/ranking-banner-08.webp'
+import rankingBanner09 from '../../../assets/ranking-banners/ranking-banner-09.webp'
+import rankingBanner10 from '../../../assets/ranking-banners/ranking-banner-10.webp'
+import rankingBanner11 from '../../../assets/ranking-banners/ranking-banner-11.webp'
+import rankingBanner12 from '../../../assets/ranking-banners/ranking-banner-12.webp'
 import {
   type RankingEntry,
 } from '../../../entities/ranking/model/mockRanking'
@@ -13,6 +25,21 @@ const scopes: Array<{ label: string; value: RankingScope }> = [
   { label: 'TOP 500', value: 'top' },
   { label: 'PLAYERS', value: 'players' },
   { label: 'TEAMS', value: 'teams' },
+]
+
+const rankingBanners = [
+  rankingBanner01,
+  rankingBanner02,
+  rankingBanner03,
+  rankingBanner04,
+  rankingBanner05,
+  rankingBanner06,
+  rankingBanner07,
+  rankingBanner08,
+  rankingBanner09,
+  rankingBanner10,
+  rankingBanner11,
+  rankingBanner12,
 ]
 
 export function RankingBoard() {
@@ -99,6 +126,7 @@ interface RankingRowProps {
 function RankingRow({ entry, isTeam }: RankingRowProps) {
   const rankLabel = entry.rankName ?? entry.tier
   const rankDetail = isTeam ? `${entry.region} SQUAD` : entry.tag
+  const banner = rankingBanners[(entry.position - 1) % rankingBanners.length]
 
   return (
     <Panel className="grid h-[63px] grid-cols-[47px_82px_82px_minmax(0,1fr)_135px] items-center overflow-hidden px-4 xl:h-[76px] xl:grid-cols-[56px_100px_100px_minmax(0,1fr)_180px] min-[1900px]:h-[100px] min-[1900px]:grid-cols-[72px_145px_157px_minmax(0,1fr)_307px] min-[1900px]:px-[30px]">
@@ -122,7 +150,10 @@ function RankingRow({ entry, isTeam }: RankingRowProps) {
           <span className="font-heading font-semibold text-arena-copy">{rankLabel}</span> / {rankDetail}
         </span>
       </span>
-      <span className="ranking-row-art -mr-4 h-full min-[1900px]:-mr-[30px]" />
+      <span
+        className="ranking-row-art -mr-4 h-full min-[1900px]:-mr-[30px]"
+        style={{ backgroundImage: `url(${banner})` }}
+      />
     </Panel>
   )
 }

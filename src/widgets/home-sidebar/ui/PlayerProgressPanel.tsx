@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom'
+import { MorningstarAvatar } from '../../../entities/player/ui/MorningstarAvatar'
 import { useAuth } from '../../../features/auth/model/useAuth'
 import { useActiveGameData } from '../../../features/game-selection/model/useActiveGameData'
 import { Panel } from '../../../shared/ui/Panel'
@@ -38,7 +39,7 @@ export function PlayerProgressPanel() {
   return (
     <Panel className="p-4 xl:p-5 min-[1900px]:p-[25px]">
       <div className="flex items-center gap-3 min-[1900px]:gap-[18px]">
-        <div className="profile-orb h-[50px] w-[50px] shrink-0 rounded-full border border-crimson xl:h-[58px] xl:w-[58px] min-[1900px]:h-[76px] min-[1900px]:w-[76px]" />
+        <MorningstarAvatar className="h-[50px] w-[50px] shrink-0 rounded-full border border-crimson xl:h-[58px] xl:w-[58px] min-[1900px]:h-[76px] min-[1900px]:w-[76px]" />
         <div>
           <p className="text-[8px] font-semibold tracking-[0.2em] text-crimson min-[1900px]:text-[12px]">
             {game.title}

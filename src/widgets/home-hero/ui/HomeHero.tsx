@@ -1,10 +1,21 @@
-import { ShadowArenaLogo } from '../../../shared/ui/ShadowArenaLogo'
+import heroBlockVideoUrl from '../../../assets/heroblock.mp4'
 
 export function HomeHero() {
   return (
-    <section className="home-entry-hero relative flex min-h-[360px] flex-col justify-end pb-7 pt-12 md:min-h-[410px] xl:min-h-[480px] xl:pb-9 2xl:min-h-[530px] min-[1900px]:min-h-[620px] min-[1900px]:pb-[50px]">
-      <ShadowArenaLogo className="home-entry-logo absolute left-1/2 top-[38%] h-auto w-[280px] -translate-x-1/2 -translate-y-1/2 sm:w-[390px] xl:w-[520px] 2xl:w-[620px] min-[1900px]:w-[820px]" />
-      <div className="relative z-10">
+    <section className="home-entry-hero mb-8 pt-3 xl:mb-10 min-[1900px]:mb-[56px]">
+      <div className="home-entry-video-frame relative h-[420px] overflow-hidden rounded-[4px] md:h-[500px] xl:h-[590px] 2xl:h-[650px] min-[1900px]:h-[780px]">
+        <video
+          aria-hidden="true"
+          autoPlay
+          className="home-entry-video absolute inset-0 h-full w-full object-cover"
+          loop
+          muted
+          playsInline
+          preload="metadata"
+          src={heroBlockVideoUrl}
+        />
+      </div>
+      <div className="mt-6 xl:mt-7 min-[1900px]:mt-[38px]">
         <p className="font-display text-[21px] text-arena-strong sm:text-[25px] xl:text-[31px] 2xl:text-[35px] min-[1900px]:text-[49px]">
           FORGE YOUR LEGEND
         </p>

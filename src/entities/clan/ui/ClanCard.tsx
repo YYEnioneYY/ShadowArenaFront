@@ -1,3 +1,11 @@
+import clanAvatar01 from '../../../assets/clans/avatars/clan-avatar-01.webp'
+import clanAvatar02 from '../../../assets/clans/avatars/clan-avatar-02.webp'
+import clanAvatar03 from '../../../assets/clans/avatars/clan-avatar-03.webp'
+import clanAvatar04 from '../../../assets/clans/avatars/clan-avatar-04.webp'
+import clanAvatar05 from '../../../assets/clans/avatars/clan-avatar-05.webp'
+import clanAvatar06 from '../../../assets/clans/avatars/clan-avatar-06.webp'
+import clanAvatar07 from '../../../assets/clans/avatars/clan-avatar-07.webp'
+import clanAvatar08 from '../../../assets/clans/avatars/clan-avatar-08.webp'
 import { cn } from '../../../shared/lib/cn'
 import { Panel } from '../../../shared/ui/Panel'
 import type { Clan } from '../model/types'
@@ -8,11 +16,24 @@ interface ClanCardProps {
   onRequest: (clanId: string) => void
 }
 
+const clanAvatars = [
+  clanAvatar01,
+  clanAvatar02,
+  clanAvatar03,
+  clanAvatar04,
+  clanAvatar05,
+  clanAvatar06,
+  clanAvatar07,
+  clanAvatar08,
+]
+
 export function ClanCard({
   clan,
   isRequested,
   onRequest,
 }: ClanCardProps) {
+  const clanNumber = Number(clan.id.match(/clan-(\d+)$/)?.[1] ?? 1)
+  const clanAvatar = clanAvatars[(clanNumber - 1) % clanAvatars.length]
   const details = [
     { label: 'MEMBERS', value: `${clan.members} / ${clan.totalMembers}` },
     { label: 'WINRATE', value: `${clan.winRate}%` },
@@ -24,7 +45,10 @@ export function ClanCard({
 
   return (
     <Panel className="group flex min-h-[82px] overflow-hidden min-[1900px]:min-h-[108px]">
-      <span className="clan-card-art hidden w-[98px] shrink-0 sm:block xl:w-[120px] min-[1900px]:w-[170px]" />
+      <span
+        className="clan-card-art hidden w-[98px] shrink-0 sm:block xl:w-[120px] min-[1900px]:w-[170px]"
+        style={{ backgroundImage: `url(${clanAvatar})` }}
+      />
       <div className="flex min-w-0 flex-1 flex-col gap-4 px-4 py-3 sm:flex-row sm:items-center xl:px-5 min-[1900px]:gap-[32px] min-[1900px]:px-[28px]">
         <div className="min-w-[180px] flex-1">
           <h3 className="truncate text-[17px] font-medium text-arena-strong xl:text-[21px] min-[1900px]:text-[30px]">

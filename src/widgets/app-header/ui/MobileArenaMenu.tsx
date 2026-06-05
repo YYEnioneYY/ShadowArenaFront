@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react'
 import { Link, NavLink, useLocation } from 'react-router-dom'
 import { mockGames } from '../../../entities/game/model/mockGames'
 import { GameIcon } from '../../../entities/game/ui/GameIcon'
+import { MorningstarAvatar } from '../../../entities/player/ui/MorningstarAvatar'
 import { useAuth } from '../../../features/auth/model/useAuth'
 import { useActiveGameData } from '../../../features/game-selection/model/useActiveGameData'
 import { useSelectedGame } from '../../../features/game-selection/model/useSelectedGame'
@@ -87,7 +88,7 @@ export function MobileArenaMenu() {
               {isAuthenticated && user && profile ? (
                 <div className="rounded-[5px] border border-arena-outline bg-black/35 p-3">
                   <div className="flex items-center gap-3">
-                    <span className="profile-orb h-[47px] w-[47px] shrink-0 rounded-full border border-crimson" />
+                    <MorningstarAvatar className="h-[47px] w-[47px] shrink-0 rounded-full border border-crimson" />
                     <span className="min-w-0">
                       <span className="block truncate font-heading text-[14px] text-arena-strong">
                         {profile.name}
