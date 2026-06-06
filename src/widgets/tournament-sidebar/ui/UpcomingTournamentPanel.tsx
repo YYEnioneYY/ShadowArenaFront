@@ -1,17 +1,43 @@
+import { useEffect, useState } from 'react'
+
+import initiationImage from '../../../assets/main/initiation.png'
 import { TournamentArtwork } from '../../../entities/tournament/ui/TournamentArtwork'
 import { useActiveGameData } from '../../../features/game-selection/model/useActiveGameData'
 import { Panel } from '../../../shared/ui/Panel'
 
-const countdown = [
-  { value: '0', unit: 'DAYS' },
-  { value: '14', unit: 'HRS' },
-  { value: '55', unit: 'MINS' },
-  { value: '41', unit: 'SECS' },
-]
+const timerDurationSeconds = 14 * 60 * 60 + 55 * 60 + 41
+
+function formatCountdown(totalSeconds: number) {
+  const days = Math.floor(totalSeconds / 86_400)
+  const hours = Math.floor((totalSeconds % 86_400) / 3_600)
+  const minutes = Math.floor((totalSeconds % 3_600) / 60)
+  const seconds = totalSeconds % 60
+
+  return [
+    { value: String(days), unit: 'DAYS' },
+    { value: String(hours).padStart(2, '0'), unit: 'HRS' },
+    { value: String(minutes).padStart(2, '0'), unit: 'MINS' },
+    { value: String(seconds).padStart(2, '0'), unit: 'SECS' },
+  ]
+}
 
 export function UpcomingTournamentPanel() {
   const { tournaments } = useActiveGameData()
   const featuredTournament = tournaments[0]
+  const [timerStartedAt] = useState(() => Date.now())
+  const [now, setNow] = useState(() => Date.now())
+  const elapsedSeconds = Math.floor((now - timerStartedAt) / 1000)
+  const remainingSeconds =
+    timerDurationSeconds - (elapsedSeconds % timerDurationSeconds)
+  const countdown = formatCountdown(remainingSeconds)
+
+  useEffect(() => {
+    const timer = window.setInterval(() => {
+      setNow(Date.now())
+    }, 1000)
+
+    return () => window.clearInterval(timer)
+  }, [])
 
   return (
     <Panel className="p-3 xl:p-4 2xl:p-[18px] min-[1900px]:p-[24px]">
@@ -23,6 +49,7 @@ export function UpcomingTournamentPanel() {
           featured
           format={featuredTournament.gameMode}
           game={featuredTournament.game}
+          imageUrl={initiationImage}
           variant={featuredTournament.artwork}
         />
       </div>

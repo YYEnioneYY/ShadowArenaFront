@@ -1,9 +1,48 @@
+import initiationImage from '../../../assets/main/initiation.png'
+import neonClashImage from '../../../assets/main/neonclash.png'
+import phantomStrikeImage from '../../../assets/main/phantomstrike.png'
+import shadowRushImage from '../../../assets/main/shadowrush.png'
+import vanguardOpenImage from '../../../assets/main/vanguardopen.png'
+import radiantTrialsImage from '../../../assets/tournaments/06-radiant-trials.webp'
+import crimsonCrownImage from '../../../assets/tournaments/07-crimson-crown.webp'
+import obsidianCupImage from '../../../assets/tournaments/08-obsidian-cup.webp'
+import fallenLegendsImage from '../../../assets/tournaments/09-fallen-legends.webp'
+import ironEclipseImage from '../../../assets/tournaments/10-iron-eclipse.webp'
+import ashenDuelImage from '../../../assets/tournaments/11-ashen-duel.webp'
+import nightfallSeriesImage from '../../../assets/tournaments/12-nightfall-series.webp'
+import scarletPairImage from '../../../assets/tournaments/13-scarlet-pair.webp'
+import frostbiteArenaImage from '../../../assets/tournaments/14-frostbite-arena.webp'
+import voidRunnersImage from '../../../assets/tournaments/15-void-runners.webp'
+import legionAscentImage from '../../../assets/tournaments/16-legion-ascent.webp'
+import emberDuoImage from '../../../assets/tournaments/17-ember-duo.webp'
+import sovereignFiveImage from '../../../assets/tournaments/18-sovereign-five.webp'
 import { Panel } from '../../../shared/ui/Panel'
 import type { Tournament } from '../model/types'
 import { TournamentArtwork } from './TournamentArtwork'
 
 interface TournamentCardProps {
   tournament: Tournament
+}
+
+const tournamentImageUrls: Record<number, string> = {
+  1: initiationImage,
+  2: phantomStrikeImage,
+  3: shadowRushImage,
+  4: vanguardOpenImage,
+  5: neonClashImage,
+  6: radiantTrialsImage,
+  7: crimsonCrownImage,
+  8: obsidianCupImage,
+  9: fallenLegendsImage,
+  10: ironEclipseImage,
+  11: ashenDuelImage,
+  12: nightfallSeriesImage,
+  13: scarletPairImage,
+  14: frostbiteArenaImage,
+  15: voidRunnersImage,
+  16: legionAscentImage,
+  17: emberDuoImage,
+  18: sovereignFiveImage,
 }
 
 export function TournamentCard({ tournament }: TournamentCardProps) {
@@ -47,6 +86,7 @@ export function TournamentCard({ tournament }: TournamentCardProps) {
       <TournamentArtwork
         format={tournament.gameMode}
         game={tournament.game}
+        imageUrl={tournamentImageUrls[tournament.id]}
         variant={tournament.artwork}
       />
     </Panel>

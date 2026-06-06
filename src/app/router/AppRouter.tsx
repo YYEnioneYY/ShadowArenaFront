@@ -1,5 +1,5 @@
 import { Route, Routes } from 'react-router-dom'
-import { AuthPage } from '../../pages/auth'
+import { AuthPage, ForgotPasswordPage } from '../../pages/auth'
 import { ClansPage } from '../../pages/clans'
 import { FriendsPage } from '../../pages/friends'
 import { HomePage } from '../../pages/home'
@@ -25,6 +25,7 @@ export function AppRouter() {
       <Route path="/profile" element={<ProfilePage />} />
       <Route path="/login" element={<AuthPage mode="login" />} />
       <Route path="/register" element={<AuthPage mode="registration" />} />
+      <Route path="/forgot-password" element={<ForgotPasswordPage />} />
       <Route path="*" element={<NotFoundPage />} />
     </Routes>
   )

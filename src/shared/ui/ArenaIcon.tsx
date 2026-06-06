@@ -1,11 +1,15 @@
 import type { ReactNode, SVGProps } from 'react'
 
 type IconName =
+  | 'arrow-left'
   | 'bell'
   | 'calendar'
   | 'coin'
+  | 'eye'
+  | 'eye-off'
   | 'filter'
   | 'globe'
+  | 'lock'
   | 'logout'
   | 'mail'
   | 'pulse'
@@ -21,6 +25,7 @@ interface ArenaIconProps extends SVGProps<SVGSVGElement> {
 
 export function ArenaIcon({ name, ...props }: ArenaIconProps) {
   const shapes: Record<IconName, ReactNode> = {
+    'arrow-left': <path d="M19 12H5M11 6l-6 6 6 6" />,
     bell: (
       <>
         <path d="M6 10a6 6 0 0 1 12 0v4l2 3H4l2-3z" />
@@ -39,11 +44,32 @@ export function ArenaIcon({ name, ...props }: ArenaIconProps) {
         <path d="M14.3 8.8c-.6-.5-1.4-.8-2.4-.8-1.3 0-2.2.7-2.2 1.8 0 2.8 5 1.2 5 4 0 1.2-1.1 2.2-2.8 2.2-1.1 0-2.1-.4-2.9-1M12 6.4v11.2" />
       </>
     ),
+    eye: (
+      <>
+        <path d="M2.5 12s3.4-6 9.5-6 9.5 6 9.5 6-3.4 6-9.5 6-9.5-6-9.5-6z" />
+        <circle cx="12" cy="12" r="3" />
+      </>
+    ),
+    'eye-off': (
+      <>
+        <path d="M3 3l18 18" />
+        <path d="M10.6 6.2A9.6 9.6 0 0 1 12 6c6.1 0 9.5 6 9.5 6a17.1 17.1 0 0 1-3.1 3.8" />
+        <path d="M6.4 6.9A17 17 0 0 0 2.5 12s3.4 6 9.5 6a9.7 9.7 0 0 0 3.5-.7" />
+        <path d="M9.9 9.9A3 3 0 0 0 14.1 14.1" />
+      </>
+    ),
     filter: <path d="M3 5h18l-7 8v6l-4-2v-4z" />,
     globe: (
       <>
         <circle cx="12" cy="12" r="9" />
         <path d="M3 12h18M12 3c3 3 3 15 0 18M12 3c-3 3-3 15 0 18" />
+      </>
+    ),
+    lock: (
+      <>
+        <rect x="5" y="10" width="14" height="11" rx="2" />
+        <path d="M8 10V7a4 4 0 0 1 8 0v3" />
+        <path d="M12 14v3" />
       </>
     ),
     logout: (

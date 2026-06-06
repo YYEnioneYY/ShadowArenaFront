@@ -1,6 +1,6 @@
 import type { StoreItem } from '../../../entities/store/model/mockStoreItems'
 import { storeCollections } from '../../../entities/store/model/mockStoreItems'
-import { StoreItemVisual } from '../../../entities/store/ui/StoreItemVisual'
+import arenaPassImage from '../../../assets/store/items/arenapass.png'
 import { Panel } from '../../../shared/ui/Panel'
 
 interface StoreHeroProps {
@@ -28,14 +28,14 @@ export function StoreHero({ featuredItem, onPreview }: StoreHeroProps) {
         </p>
       </div>
       <Panel className="store-hero relative min-h-[226px] overflow-hidden px-5 py-7 md:min-h-[250px] md:px-9 xl:min-h-[286px] xl:px-[46px] xl:py-[38px] 2xl:min-h-[316px] 2xl:px-[54px] min-[1900px]:min-h-[414px] min-[1900px]:px-[76px] min-[1900px]:py-[58px]">
-        <div className="store-hero-art pointer-events-none absolute inset-y-0 left-[32%] right-[15%] hidden md:block">
-          <StoreItemVisual
-            className="h-full w-full rounded-none opacity-85"
-            item={featuredItem}
-            preview
-          />
-        </div>
-        <div className="absolute inset-0 bg-[linear-gradient(90deg,rgb(0_0_0/0.92)_0%,rgb(0_0_0/0.5)_34%,rgb(0_0_0/0.18)_58%,rgb(0_0_0/0.78)_100%)]" />
+        <img
+          alt=""
+          aria-hidden="true"
+          className="pointer-events-none absolute inset-0 h-full w-full object-cover object-[64%_50%]"
+          draggable={false}
+          src={arenaPassImage}
+        />
+        <div className="absolute inset-0 bg-[linear-gradient(90deg,rgb(0_0_0/0.96)_0%,rgb(0_0_0/0.82)_32%,rgb(0_0_0/0.28)_60%,rgb(0_0_0/0.8)_100%)]" />
         <div className="relative z-10 grid gap-7 md:grid-cols-[minmax(0,1fr)_220px] md:items-center xl:grid-cols-[minmax(0,1fr)_270px] min-[1900px]:grid-cols-[minmax(0,1fr)_390px]">
           <div className="max-w-[420px] min-[1900px]:max-w-[580px]">
             <h2 className="font-heading text-[24px] leading-none text-arena-strong xl:text-[31px] min-[1900px]:text-[43px]">

@@ -1,4 +1,10 @@
 import type { ClanMembership } from '../../../entities/clan/model/types'
+import clanMemberAvatar01 from '../../../assets/avatars/clan-requests/clan-request-avatar-01.webp'
+import clanMemberAvatar02 from '../../../assets/avatars/clan-requests/clan-request-avatar-02.webp'
+import clanMemberAvatar03 from '../../../assets/avatars/clan-requests/clan-request-avatar-03.webp'
+import clanMemberAvatar04 from '../../../assets/avatars/clan-requests/clan-request-avatar-04.webp'
+import clanMemberAvatar05 from '../../../assets/avatars/clan-requests/clan-request-avatar-05.webp'
+import clanMemberAvatar06 from '../../../assets/avatars/clan-requests/clan-request-avatar-06.webp'
 import clanBannerUrl from '../../../assets/clans/shadow-legion-banner.png'
 import { MorningstarAvatar } from '../../../entities/player/ui/MorningstarAvatar'
 import { useActiveGameData } from '../../../features/game-selection/model/useActiveGameData'
@@ -7,6 +13,15 @@ import { Panel } from '../../../shared/ui/Panel'
 interface ClanMembershipPanelProps {
   membership: ClanMembership
 }
+
+const clanMemberAvatars = [
+  clanMemberAvatar01,
+  clanMemberAvatar02,
+  clanMemberAvatar03,
+  clanMemberAvatar04,
+  clanMemberAvatar05,
+  clanMemberAvatar06,
+]
 
 export function ClanMembershipPanel({ membership }: ClanMembershipPanelProps) {
   const { profile, ranking } = useActiveGameData()
@@ -74,7 +89,7 @@ export function ClanMembershipPanel({ membership }: ClanMembershipPanelProps) {
         </div>
       </section>
       <div className="mt-3 grid gap-2 sm:grid-cols-2 xl:grid-cols-3 min-[1900px]:mt-[14px] min-[1900px]:gap-[15px]">
-        {membership.members.map((member) => (
+        {membership.members.map((member, index) => (
           <Panel
             className="flex h-[68px] items-center gap-3 px-3 min-[1900px]:h-[94px] min-[1900px]:gap-[17px] min-[1900px]:px-[17px]"
             key={member.id}
@@ -82,7 +97,18 @@ export function ClanMembershipPanel({ membership }: ClanMembershipPanelProps) {
             {member.isCurrentUser ? (
               <MorningstarAvatar className="h-[48px] w-[48px] shrink-0 rounded-full border border-crimson min-[1900px]:h-[68px] min-[1900px]:w-[68px]" />
             ) : (
-              <span className="clan-member-avatar h-[48px] w-[48px] shrink-0 rounded-full border border-crimson min-[1900px]:h-[68px] min-[1900px]:w-[68px]" />
+              <img
+                alt=""
+                aria-hidden="true"
+                className="h-[48px] w-[48px] shrink-0 rounded-full border border-crimson object-cover min-[1900px]:h-[68px] min-[1900px]:w-[68px]"
+                draggable={false}
+                src={
+                  clanMemberAvatars[
+                    (index - 1 + clanMemberAvatars.length) %
+                      clanMemberAvatars.length
+                  ]
+                }
+              />
             )}
             <span className="min-w-0">
               <span className="block truncate text-[9px] font-semibold text-crimson min-[1900px]:text-[13px]">

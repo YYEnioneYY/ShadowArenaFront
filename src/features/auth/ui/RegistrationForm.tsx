@@ -18,6 +18,7 @@ export function RegistrationForm() {
       <div className="space-y-5 min-[1900px]:space-y-[22px]">
         <AuthField
           hint={`4 - 32 characters, letters, numbers and _                         ${username.length}/32`}
+          icon="user"
           label="USERNAME"
           maxLength={32}
           onChange={(event) => {
@@ -29,19 +30,24 @@ export function RegistrationForm() {
         />
         <AuthField
           autoComplete="email"
+          icon="mail"
           label="EMAIL"
           placeholder="Enter your email address"
           type="email"
         />
         <AuthField
           autoComplete="new-password"
+          icon="lock"
           label="PASSWORD"
+          passwordToggle
           placeholder="Create a strong password"
           type="password"
         />
         <AuthField
           autoComplete="new-password"
+          icon="lock"
           label="CONFIRM PASSWORD"
+          passwordToggle
           placeholder="Confirm your password"
           type="password"
         />
