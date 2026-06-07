@@ -2,6 +2,7 @@ import {
   mockProfileIdentity,
 } from '../../../entities/account/model/mockAccountData'
 import { MorningstarAvatar } from '../../../entities/player/ui/MorningstarAvatar'
+import profileBundleImage from '../../../assets/profile/bundle.png'
 import { useAuth } from '../../../features/auth/model/useAuth'
 import { Panel } from '../../../shared/ui/Panel'
 
@@ -24,7 +25,13 @@ export function ProfileHero() {
 
   return (
     <Panel className="profile-banner relative min-h-[370px] overflow-hidden px-6 pb-6 pt-[215px] sm:min-h-[270px] sm:pl-[198px] sm:pt-[126px] xl:min-h-[302px] xl:pl-[222px] xl:pt-[145px] min-[1900px]:min-h-[356px] min-[1900px]:pl-[278px] min-[1900px]:pt-[170px]">
-      <div className="profile-banner-art absolute inset-0" />
+      <img
+        alt=""
+        aria-hidden="true"
+        className="profile-banner-art absolute inset-0 h-full w-full object-cover object-center"
+        draggable={false}
+        src={profileBundleImage}
+      />
       <MorningstarAvatar
         className="absolute left-6 top-[54px] h-[145px] w-[145px] rounded-full border border-crimson sm:left-[32px] sm:top-[65px] xl:h-[172px] xl:w-[172px] min-[1900px]:left-[42px] min-[1900px]:top-[73px] min-[1900px]:h-[208px] min-[1900px]:w-[208px]"
         variant="portrait"

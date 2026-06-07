@@ -24,7 +24,7 @@ export function ProfileStats() {
           {tabs.map((tab) => (
             <button
               className={cn(
-                'relative h-full px-2 font-display text-[10px] font-bold text-arena-muted transition-colors hover:text-arena-strong xl:text-[12px] min-[1900px]:px-[17px] min-[1900px]:text-[16px]',
+                'relative h-full px-2 font-heading text-[10px] font-bold text-arena-muted transition-colors hover:text-arena-strong xl:text-[12px] min-[1900px]:px-[17px] min-[1900px]:text-[16px]',
                 activeTab === tab.value && 'text-crimson',
               )}
               key={tab.value}
@@ -66,15 +66,15 @@ function RankAndProgression() {
   return (
     <Panel className="mt-3 px-6 py-7 xl:mt-4 xl:px-8 xl:py-[34px] min-[1900px]:px-[44px] min-[1900px]:py-[42px]">
       <div className="flex items-baseline justify-between gap-4">
-        <h2 className="font-display text-[18px] font-bold text-arena-strong xl:text-[22px] min-[1900px]:text-[29px]">
+        <h2 className="font-heading text-[18px] font-bold text-arena-strong xl:text-[22px] min-[1900px]:text-[29px]">
           RANK AND PROGRESSION
         </h2>
         <p className="text-[9px] font-semibold tracking-[0.18em] text-crimson min-[1900px]:text-[13px]">
           {game.title}
         </p>
       </div>
-      <div className="mt-7 grid gap-8 md:grid-cols-[minmax(280px,0.82fr)_minmax(310px,1fr)] min-[1900px]:mt-[38px] min-[1900px]:gap-[52px]">
-        <div className="flex items-center gap-7 min-[1900px]:gap-[36px]">
+      <div className="mt-7 grid gap-7 md:grid-cols-[minmax(260px,0.78fr)_minmax(320px,1fr)] min-[1900px]:mt-[38px] min-[1900px]:gap-[46px]">
+        <div className="flex items-center gap-5 md:-ml-3 xl:-ml-4 min-[1900px]:gap-[30px] min-[1900px]:-ml-[24px]">
           <RankEmblem
             className="h-[112px] w-[166px] shrink-0 xl:h-[140px] xl:w-[207px] min-[1900px]:h-[180px] min-[1900px]:w-[266px]"
             tier={currentRank.tier}
@@ -106,11 +106,11 @@ function RankAndProgression() {
               <p className="text-[7px] text-arena-muted min-[1900px]:text-[10px]">
                 {stat.label}
               </p>
-              <p className="mt-1 font-display text-[18px] text-arena-strong min-[1900px]:text-[25px]">
+              <p className="mt-1 font-heading text-[18px] text-arena-strong min-[1900px]:text-[25px]">
                 {stat.value}
               </p>
-            </div>
-          ))}
+          </div>
+        ))}
         </div>
       </div>
     </Panel>
@@ -126,7 +126,7 @@ function GameStatistics() {
 
   return (
     <Panel className="mt-3 p-6 xl:mt-4 xl:p-8 min-[1900px]:p-[42px]">
-      <h2 className="font-display text-[19px] text-arena-strong min-[1900px]:text-[29px]">
+      <h2 className="font-heading text-[19px] text-arena-strong min-[1900px]:text-[29px]">
         {game.title} STATISTICS
       </h2>
       <div className="mt-6 grid gap-3 sm:grid-cols-2 min-[1900px]:mt-[32px] min-[1900px]:gap-[18px]">
@@ -138,7 +138,7 @@ function GameStatistics() {
             <p className="text-[9px] font-semibold text-arena-muted min-[1900px]:text-[13px]">
               {value.label}
             </p>
-            <p className="mt-3 font-display text-[27px] text-crimson min-[1900px]:text-[36px]">
+            <p className="mt-3 font-heading text-[27px] text-crimson min-[1900px]:text-[36px]">
               {value.value}
             </p>
           </div>
@@ -153,7 +153,7 @@ function MatchHistory() {
 
   return (
     <Panel className="mt-3 p-6 xl:mt-4 xl:p-8 min-[1900px]:p-[42px]">
-      <h2 className="font-display text-[19px] text-arena-strong min-[1900px]:text-[29px]">
+      <h2 className="font-heading text-[19px] text-arena-strong min-[1900px]:text-[29px]">
         RECENT {game.title} MATCHES
       </h2>
       <div className="mt-6 space-y-3 min-[1900px]:mt-[30px] min-[1900px]:space-y-[15px]">
@@ -198,7 +198,7 @@ function GameMilestones() {
 
   return (
     <Panel className="mt-3 p-6 xl:mt-4 xl:p-8 min-[1900px]:p-[42px]">
-      <h2 className="font-display text-[19px] text-arena-strong min-[1900px]:text-[29px]">
+      <h2 className="font-heading text-[19px] text-arena-strong min-[1900px]:text-[29px]">
         GAME MILESTONES
       </h2>
       <div className="mt-6 space-y-3 min-[1900px]:mt-[30px]">

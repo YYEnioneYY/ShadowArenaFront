@@ -1,14 +1,17 @@
-import bloodMoonArrivalImage from '../../../assets/store/items/blood-moon-arrival.webp'
-import crimsonSovereignBundleImage from '../../../assets/store/items/crimson-sovereign-bundle.webp'
-import crownOfEmbersImage from '../../../assets/store/items/crown-of-embers.webp'
-import eclipseLegacyBundleImage from '../../../assets/store/items/eclipse-legacy-bundle.webp'
-import immortalWingsImage from '../../../assets/store/items/immortal-wings.webp'
-import lotusAwakeningImage from '../../../assets/store/items/lotus-awakening.webp'
-import orderSigilImage from '../../../assets/store/items/order-sigil.webp'
-import phantomStepImage from '../../../assets/store/items/phantom-step.webp'
-import roninOathImage from '../../../assets/store/items/ronin-oath.webp'
-import spectralHornsImage from '../../../assets/store/items/spectral-horns.webp'
-import veiledNameplateImage from '../../../assets/store/items/veiled-nameplate.webp'
+import bloodMoonVideo from '../../../assets/bloodmoon.mp4'
+import crownOfEmbersVideo from '../../../assets/crownofembers.mp4'
+import immortalWingsVideo from '../../../assets/immortalwings.mp4'
+import lotusAwakingVideo from '../../../assets/lotusawaking.mp4'
+import phantomStepVideo from '../../../assets/phantomstep.mp4'
+import spectralHornsVideo from '../../../assets/spectralhorns.mp4'
+import crownOfEmbersImage from '../../../assets/store/crownofembers.png'
+import eclipseLegacyBundleImage from '../../../assets/store/eclipselegacy.png'
+import immortalWingsImage from '../../../assets/store/immortalwings.png'
+import orderSigilImage from '../../../assets/store/ordersigil.png'
+import roninOathImage from '../../../assets/store/roninoath.png'
+import sovereignSetImage from '../../../assets/store/sovereignset.png'
+import spectralHornsImage from '../../../assets/store/spectralhorns.png'
+import veiledThroneImage from '../../../assets/store/veiledthrone.png'
 import { cn } from '../../../shared/lib/cn'
 import type { StoreItem } from '../model/mockStoreItems'
 
@@ -19,17 +22,23 @@ interface StoreItemVisualProps {
 }
 
 const storeItemImages: Record<string, string> = {
-  'blood-moon-arrival': bloodMoonArrivalImage,
-  'crimson-sovereign-bundle': crimsonSovereignBundleImage,
+  'crimson-sovereign-bundle': sovereignSetImage,
   'crown-of-embers': crownOfEmbersImage,
   'eclipse-legacy-bundle': eclipseLegacyBundleImage,
   'immortal-wings': immortalWingsImage,
-  'lotus-awakening': lotusAwakeningImage,
   'order-sigil': orderSigilImage,
-  'phantom-step': phantomStepImage,
   'ronin-oath': roninOathImage,
   'spectral-horns': spectralHornsImage,
-  'veiled-nameplate': veiledNameplateImage,
+  'veiled-nameplate': veiledThroneImage,
+}
+
+const storeItemVideos: Record<string, string> = {
+  'blood-moon-arrival': bloodMoonVideo,
+  'crown-of-embers': crownOfEmbersVideo,
+  'immortal-wings': immortalWingsVideo,
+  'lotus-awakening': lotusAwakingVideo,
+  'phantom-step': phantomStepVideo,
+  'spectral-horns': spectralHornsVideo,
 }
 
 export function StoreItemVisual({
@@ -38,6 +47,7 @@ export function StoreItemVisual({
   preview = false,
 }: StoreItemVisualProps) {
   const imageUrl = storeItemImages[item.id]
+  const videoUrl = storeItemVideos[item.id]
 
   return (
     <div
@@ -47,7 +57,22 @@ export function StoreItemVisual({
         className,
       )}
     >
-      {imageUrl ? (
+      {videoUrl ? (
+        <>
+          <video
+            aria-hidden="true"
+            autoPlay
+            className="pointer-events-none absolute inset-0 h-full w-full object-cover"
+            loop
+            muted
+            playsInline
+            poster={imageUrl}
+            preload="metadata"
+            src={videoUrl}
+          />
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_58%_45%,rgb(255_45_45/0.1),transparent_42%),linear-gradient(180deg,rgb(0_0_0/0.04),rgb(0_0_0/0.28))]" />
+        </>
+      ) : imageUrl ? (
         <>
           <img
             alt=""

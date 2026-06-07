@@ -3,6 +3,8 @@ import {
   mockProfileAchievements,
   mockProfileClan,
 } from '../../../entities/account/model/mockAccountData'
+import { FriendAvatar } from '../../../entities/account/ui/FriendAvatar'
+import profileClanAvatar from '../../../assets/clans/shadow-legion-banner.png'
 import { cn } from '../../../shared/lib/cn'
 import { Panel } from '../../../shared/ui/Panel'
 
@@ -67,7 +69,13 @@ function ClanPanel() {
         CLAN
       </h2>
       <div className="mt-4 flex items-center gap-3 min-[1900px]:mt-[20px] min-[1900px]:gap-[17px]">
-        <span className="profile-clan-emblem h-[58px] w-[58px] shrink-0 rounded-full border border-crimson min-[1900px]:h-[79px] min-[1900px]:w-[79px]" />
+        <img
+          alt=""
+          aria-hidden="true"
+          className="profile-clan-emblem h-[58px] w-[58px] shrink-0 rounded-full border border-crimson object-cover min-[1900px]:h-[79px] min-[1900px]:w-[79px]"
+          draggable={false}
+          src={profileClanAvatar}
+        />
         <p className="font-heading text-[16px] font-bold text-arena-strong min-[1900px]:text-[23px]">
           {mockProfileClan.name}
         </p>
@@ -95,12 +103,15 @@ function ProfileFriendsPanel() {
         FRIENDS
       </h2>
       <div className="mt-4 space-y-2 min-[1900px]:mt-[20px] min-[1900px]:space-y-[9px]">
-        {mockFriends.slice(0, 3).map((friend) => (
+        {mockFriends.slice(0, 5).map((friend) => (
           <div
             className="flex items-center gap-3 rounded-[4px] border border-arena-outline p-2 min-[1900px]:gap-[14px] min-[1900px]:p-[9px]"
             key={friend.id}
           >
-            <span className="leader-avatar h-[37px] w-[37px] shrink-0 rounded-full border border-crimson/70 min-[1900px]:h-[50px] min-[1900px]:w-[50px]" />
+            <FriendAvatar
+              className="h-[37px] w-[37px] shrink-0 rounded-full border border-crimson/70 min-[1900px]:h-[50px] min-[1900px]:w-[50px]"
+              friendId={friend.id}
+            />
             <div className="min-w-0">
               <p className="truncate text-[10px] font-semibold text-crimson min-[1900px]:text-[14px]">
                 {friend.name}

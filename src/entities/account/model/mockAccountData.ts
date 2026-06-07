@@ -51,11 +51,54 @@ export const mockFriends: MockFriend[] = [
     rank: 'ARCANE',
     status: 'offline',
   },
+  {
+    activity: 'Scrimming with squad',
+    game: 'VALORANT',
+    id: 6,
+    name: 'Ashen',
+    rank: 'ASCENDANT',
+    status: 'online',
+  },
+  {
+    activity: 'Watching finals',
+    game: 'RAINBOW SIX SIEGE',
+    id: 7,
+    name: 'Vex',
+    rank: 'CHAMPION',
+    status: 'away',
+  },
+  {
+    activity: 'Playing Ranked',
+    game: 'FORTNITE',
+    id: 8,
+    name: 'Kyra',
+    rank: 'UNREAL',
+    status: 'online',
+  },
+  {
+    activity: 'Offline',
+    game: 'ROCKET LEAGUE',
+    id: 9,
+    lastSeen: '2 DAYS AGO',
+    name: 'Noctis',
+    rank: 'GRAND CHAMPION',
+    status: 'offline',
+  },
+  {
+    activity: 'Queueing duo',
+    game: 'MARVEL RIVALS',
+    id: 10,
+    name: 'Sable',
+    rank: 'CELESTIAL',
+    status: 'online',
+  },
 ]
 
 export const mockFriendRequests = [
   { id: 11, name: 'Astra Veyl', game: 'VALORANT', commonFriends: 4 },
   { id: 12, name: 'Silent Vow', game: 'ROCKET LEAGUE', commonFriends: 2 },
+  { id: 13, name: 'Nyx Bloom', game: 'APEX LEGENDS', commonFriends: 6 },
+  { id: 14, name: 'Zero Bloom', game: 'DOTA 2', commonFriends: 1 },
 ]
 
 export const mockPrivacySessions = [

@@ -4,6 +4,7 @@ import {
   mockFriends,
   type MockFriend,
 } from '../../../entities/account/model/mockAccountData'
+import { FriendAvatar } from '../../../entities/account/ui/FriendAvatar'
 import { cn } from '../../../shared/lib/cn'
 import { Panel } from '../../../shared/ui/Panel'
 
@@ -105,11 +106,15 @@ export function FriendsDashboard() {
           </h2>
           <div className="mt-5 space-y-3 min-[1900px]:space-y-[15px]">
             {requests.map((request) => (
-              <div
+            <div
                 className="flex flex-wrap items-center gap-4 rounded-[4px] border border-arena-line bg-[#07080c] px-4 py-4 min-[1900px]:px-[21px] min-[1900px]:py-[19px]"
                 key={request.id}
               >
-                <span className="leader-avatar h-[44px] w-[44px] rounded-full border border-crimson/65 min-[1900px]:h-[57px] min-[1900px]:w-[57px]" />
+                <FriendAvatar
+                  className="h-[44px] w-[44px] rounded-full border border-crimson/65 min-[1900px]:h-[57px] min-[1900px]:w-[57px]"
+                  friendId={request.id}
+                  offset={2}
+                />
                 <div className="min-w-0 flex-1">
                   <p className="text-[13px] font-semibold text-arena-strong min-[1900px]:text-[17px]">
                     {request.name}
@@ -163,7 +168,10 @@ function FriendRow({ friend, onNotice }: FriendRowProps) {
   return (
     <div className="flex items-center gap-4 rounded-[4px] border border-arena-line bg-[#07080c] px-4 py-3.5 min-[1900px]:gap-[20px] min-[1900px]:px-[21px] min-[1900px]:py-[18px]">
       <span className="relative">
-        <span className="leader-avatar block h-[46px] w-[46px] rounded-full border border-arena-outline min-[1900px]:h-[59px] min-[1900px]:w-[59px]" />
+        <FriendAvatar
+          className="block h-[46px] w-[46px] rounded-full border border-arena-outline min-[1900px]:h-[59px] min-[1900px]:w-[59px]"
+          friendId={friend.id}
+        />
         <span
           className={cn(
             'absolute bottom-0 right-0 h-[11px] w-[11px] rounded-full border-2 border-[#07080c] min-[1900px]:h-[14px] min-[1900px]:w-[14px]',

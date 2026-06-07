@@ -1,22 +1,53 @@
+import { useEffect, useMemo, useState } from 'react'
 import type { StoreItem } from '../../../entities/store/model/mockStoreItems'
 import { storeCollections } from '../../../entities/store/model/mockStoreItems'
-import arenaPassImage from '../../../assets/store/items/arenapass.png'
+import arenaPassVideo from '../../../assets/arenapass.mp4'
+import arenaPassImage from '../../../assets/store/Arenapass.png'
 import { Panel } from '../../../shared/ui/Panel'
 
 interface StoreHeroProps {
   featuredItem: StoreItem
   onPreview: (item: StoreItem) => void
+  onViewPass: () => void
 }
 
 const featuredCollection = storeCollections[0]
-const seasonTimer = [
-  { label: 'DAYS', value: '32' },
-  { label: 'HRS', value: '14' },
-  { label: 'MINS', value: '27' },
-  { label: 'SECS', value: '53' },
-]
+const initialSeasonSeconds = 32 * 24 * 60 * 60 + 14 * 60 * 60 + 27 * 60 + 53
 
-export function StoreHero({ featuredItem, onPreview }: StoreHeroProps) {
+function formatTimeUnit(value: number) {
+  return String(value).padStart(2, '0')
+}
+
+export function StoreHero({
+  featuredItem,
+  onPreview,
+  onViewPass,
+}: StoreHeroProps) {
+  const [seasonSeconds, setSeasonSeconds] = useState(initialSeasonSeconds)
+  const seasonTimer = useMemo(() => {
+    const days = Math.floor(seasonSeconds / 86400)
+    const hours = Math.floor((seasonSeconds % 86400) / 3600)
+    const minutes = Math.floor((seasonSeconds % 3600) / 60)
+    const seconds = seasonSeconds % 60
+
+    return [
+      { label: 'DAYS', value: formatTimeUnit(days) },
+      { label: 'HRS', value: formatTimeUnit(hours) },
+      { label: 'MINS', value: formatTimeUnit(minutes) },
+      { label: 'SECS', value: formatTimeUnit(seconds) },
+    ]
+  }, [seasonSeconds])
+
+  useEffect(() => {
+    const timerId = window.setInterval(() => {
+      setSeasonSeconds((seconds) =>
+        seconds > 0 ? seconds - 1 : initialSeasonSeconds,
+      )
+    }, 1000)
+
+    return () => window.clearInterval(timerId)
+  }, [])
+
   return (
     <section className="store-stage">
       <div className="mb-4 min-[1900px]:mb-[22px]">
@@ -28,12 +59,16 @@ export function StoreHero({ featuredItem, onPreview }: StoreHeroProps) {
         </p>
       </div>
       <Panel className="store-hero relative min-h-[226px] overflow-hidden px-5 py-7 md:min-h-[250px] md:px-9 xl:min-h-[286px] xl:px-[46px] xl:py-[38px] 2xl:min-h-[316px] 2xl:px-[54px] min-[1900px]:min-h-[414px] min-[1900px]:px-[76px] min-[1900px]:py-[58px]">
-        <img
-          alt=""
+        <video
           aria-hidden="true"
+          autoPlay
           className="pointer-events-none absolute inset-0 h-full w-full object-cover object-[64%_50%]"
-          draggable={false}
-          src={arenaPassImage}
+          loop
+          muted
+          playsInline
+          poster={arenaPassImage}
+          preload="metadata"
+          src={arenaPassVideo}
         />
         <div className="absolute inset-0 bg-[linear-gradient(90deg,rgb(0_0_0/0.96)_0%,rgb(0_0_0/0.82)_32%,rgb(0_0_0/0.28)_60%,rgb(0_0_0/0.8)_100%)]" />
         <div className="relative z-10 grid gap-7 md:grid-cols-[minmax(0,1fr)_220px] md:items-center xl:grid-cols-[minmax(0,1fr)_270px] min-[1900px]:grid-cols-[minmax(0,1fr)_390px]">
@@ -50,7 +85,7 @@ export function StoreHero({ featuredItem, onPreview }: StoreHeroProps) {
             <div className="mt-6 flex flex-wrap items-center gap-3 min-[1900px]:mt-[33px]">
               <button
                 className="h-[40px] rounded-[3px] border border-crimson bg-crimson/12 px-7 text-[10px] font-semibold text-crimson shadow-[0_0_24px_rgb(255_45_45/0.16)] transition-colors hover:bg-crimson hover:text-arena-strong xl:h-[47px] xl:px-9 xl:text-[12px] min-[1900px]:h-[58px] min-[1900px]:px-[46px] min-[1900px]:text-[16px]"
-                onClick={() => onPreview(featuredItem)}
+                onClick={onViewPass}
                 type="button"
               >
                 VIEW PASS
